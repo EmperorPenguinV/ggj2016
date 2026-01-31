@@ -1,3 +1,4 @@
+class_name Slot
 extends TextureRect
 
 signal slot_entered(slot)
@@ -5,11 +6,12 @@ signal slot_exited(slot)
 
 @onready var filter = $StatusFilter
 
-var slot_ID
+var slot_ID : int
 var is_hovering:=false
 enum States {DEFAULT, TAKEN, FREE}
 var state = States.DEFAULT
-var item_stored = null
+var item_stored: Item = null
+var cooldown: int = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,6 +19,8 @@ func _ready():
 	pass # Replace with function body.
 
 func set_color(a_state = States.DEFAULT) -> void :
+	if cooldown > 0:
+		filter.color = Color(Color.GOLD, 0.2)
 	match a_state:
 		States.DEFAULT:
 			filter.color = Color(Color.WHITE, 0.0)
@@ -26,7 +30,7 @@ func set_color(a_state = States.DEFAULT) -> void :
 			filter.color = Color(Color.GREEN, 0.2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if get_global_rect().has_point(get_global_mouse_position()):
 		if not is_hovering:
 			is_hovering = true

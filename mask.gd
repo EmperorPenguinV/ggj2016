@@ -1,11 +1,11 @@
-class_name Item
+class_name Mask
 extends Node2D
 
 @onready var IconRect_path = $Icon
 
-var item_ID : int
-var item_grids := []
-var selected = false
+var mask_ID : int
+var mask_grids : Array = [] #Array[Array[int]]
+var selected := false
 var grid_anchor = null
 
 # Called when the node enters the scene tree for the first time.
@@ -18,19 +18,19 @@ func _process(delta):
 	if selected:
 		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
 
-func load_item(a_ItemID : int) -> void:
-	var Icon_path = "res://Assets/" + DataHandler.item_data[str(a_ItemID)]["Name"] + ".png"
+func load_mask(a_MaskID : int) -> void:
+	var Icon_path = "res://Assets/" + DataHandler.mask_data[str(a_MaskID)]["Name"] + ".png"
 	IconRect_path.texture = load(Icon_path)
-	for grid in DataHandler.item_grid_data[str(a_ItemID)]:
-		var converter_array := []
+	for grid in DataHandler.mask_grid_data[str(a_MaskID)]:
+		var converter_array: Array[int] = []
 		for i in grid :
 			converter_array.push_back(int(i))
-		item_grids.push_back(converter_array)
+		mask_grids.push_back(converter_array)
 	#print(item_grids)
 
 #rotate 90 degress CW
-func rotate_item():
-	for grid in item_grids:
+func rotate_mask():
+	for grid in mask_grids:
 		var temp_y = grid[0]
 		grid[0] = -grid[1]
 		grid[1] = temp_y
