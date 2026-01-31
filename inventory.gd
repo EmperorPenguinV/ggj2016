@@ -7,7 +7,6 @@ extends Control
 @onready var mask_scene:PackedScene = preload("res://mask.tscn")
 @onready var scroll_container: ScrollContainer = $Background/MarginContainer/VBoxContainer/ScrollContainer
 @onready var col_count: int = grid_container.columns #save column number
-@onready var grid_container2: GridContainer = $Background2/MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 @export var cooldown_per_activation: int = 2
 
 signal mask_placed(damage : int, armor : int)
@@ -228,7 +227,7 @@ func _on_add_slot_pressed():
 func _on_get_mask() -> void:
 	var new_mask = mask_scene.instantiate()
 	add_child(new_mask)
-	new_mask.load_mask(randi_range(1,6))    #randomize this for different items to spawn
+	new_mask.load_mask(randi_range(1,7))    #randomize this for different items to spawn
 	new_mask.selected = true
 	mask_held = new_mask
 	pass # Replace with function body.

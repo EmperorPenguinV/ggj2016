@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://bhb3tl3nku1sj" path="res://Gameloop/PlaceMaskStep.cs" id="4_lg2j6"]
 [ext_resource type="Script" uid="uid://7bf6hxx24pbe" path="res://Gameloop/DamageStep.cs" id="5_y30xb"]
 [ext_resource type="Script" uid="uid://cg2hd6jvxmmu8" path="res://Gameloop/EndStep.cs" id="6_xhjei"]
-[ext_resource type="PackedScene" uid="uid://b51tkcnke32fs" path="res://CombatSystem/Player/player_prefab.tscn" id="7_lg2j6"]
-[ext_resource type="PackedScene" uid="uid://b728gqyo7afnq" path="res://CombatSystem/Enemies/enemy_prefab.tscn" id="8_y30xb"]
+[ext_resource type="PackedScene" uid="uid://b728gqyo7afnq" path="res://Entities/Enemies/enemy_prefab.tscn" id="8_y30xb"]
+[ext_resource type="PackedScene" uid="uid://b51tkcnke32fs" path="res://Entities/Player/player_prefab.tscn" id="9_xhjei"]
 
 [node name="GameScene" type="Node2D" unique_id=1839778512 node_paths=PackedStringArray("gameLoop")]
 script = ExtResource("1_y30xb")
@@ -38,6 +38,6 @@ script = ExtResource("6_xhjei")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 
-[node name="Player" parent="." unique_id=1453012715 instance=ExtResource("7_lg2j6")]
-
 [node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("8_y30xb")]
+
+[node name="Player" parent="." unique_id=1453012715 instance=ExtResource("9_xhjei")]
