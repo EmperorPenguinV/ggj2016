@@ -6,12 +6,16 @@ public partial class Enemy : Node, IDamageable
 
 	[Export] private int currentHealth;
 
+	[Signal] public delegate void HealthChangedEventHandler(int health);
+
 	// David Getter
 	public string Name => data.Name;
 	public string Description => data.Description;
 	public int MaxHealth => data.MaxHealth;
 	public int Health => currentHealth;
 	public int Damage => data.BaseDamage;
+
+	private int currentDamage;
 
 	public override void _Ready()
 	{
@@ -21,13 +25,26 @@ public partial class Enemy : Node, IDamageable
 
 	public void TakeDamage(AttackData attack)
 	{
-		currentHealth -= attack.Damage;
+		var damage = attack.Damage;
 
-		GD.Print(
-						$"{Name} hit for {attack.Damage} damage. HP={Health}"
-				);
+		currentHealth = Mathf.Clamp(currentHealth - attack.Damage, 0, MaxHealth);
+		EmitSignal(SignalName.HealthChanged, currentHealth);
 
-		if (IsDead()) Die();
+		GD.Print($"{Name} hit for {attack.Damage} damage. HP={Health}");
+	}
+
+	public AttackData DealDamage()
+	{
+		return new AttackData
+		{
+			Damage = currentDamage
+		};
+	}
+
+	public void HealDamage(int heal)
+	{
+		currentHealth = Mathf.Clamp(currentHealth + heal, 0, MaxHealth);
+		EmitSignal(SignalName.HealthChanged, currentHealth);
 	}
 
 	public bool IsDead()
@@ -35,7 +52,7 @@ public partial class Enemy : Node, IDamageable
 		return currentHealth <= 0;
 	}
 
-	private void Die()
+	public void Die()
 	{
 		GD.Print($"{Name} died.");
 	}
