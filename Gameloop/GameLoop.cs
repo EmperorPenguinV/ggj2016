@@ -20,7 +20,7 @@ public partial class GameLoop : Node
 	public void StartGame()
 	{
 		activeStep = GameSteps.Initialize;
-		steps[activeStep].Enter();
+		steps[activeStep].Enter(this);
 	}
 
 	public void EndGame()
@@ -32,6 +32,6 @@ public partial class GameLoop : Node
 	{
 		steps[activeStep].Exit();
 		activeStep = nextStep;
-		steps[activeStep].Enter();
+		steps[activeStep].Enter(this);
 	}
 }

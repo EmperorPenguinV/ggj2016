@@ -32,7 +32,8 @@ public partial class DamageStep : AGameStep
 		{
 			player.Die();
 		}
-		else
+		
+		if(enemyDead)
 		{
 			enemy.Die();
 		}
