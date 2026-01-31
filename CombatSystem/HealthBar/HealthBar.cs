@@ -2,8 +2,8 @@ using Godot;
 
 public partial class HealthBar : ProgressBar
 {
-	Timer timer;
-	ProgressBar damageBar;
+	[Export] private Timer timer;
+	[Export] private ProgressBar damageBar;
 
 	int health = 0;
 
