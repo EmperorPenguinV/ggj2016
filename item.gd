@@ -5,6 +5,8 @@ extends Node2D
 
 var item_ID : int
 var item_grids := []
+var damage: int = 0
+var armor: int = 0
 var selected = false
 var grid_anchor = null
 
@@ -26,7 +28,8 @@ func load_item(a_ItemID : int) -> void:
 		for i in grid :
 			converter_array.push_back(int(i))
 		item_grids.push_back(converter_array)
-	#print(item_grids)
+	damage = int(DataHandler.item_data[str(a_ItemID)]["Damage"])
+	armor = int(DataHandler.item_data[str(a_ItemID)]["Armor"])
 
 #rotate 90 degress CW
 func rotate_item():
