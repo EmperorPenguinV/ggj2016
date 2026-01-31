@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cstc5egjh3n2s"]
+
+[ext_resource type="Script" uid="uid://blp3u7pi65qgh" path="res://cooldown_timer.gd" id="1_wd6yy"]
+
+[node name="CooldownTimer" type="ColorRect" unique_id=832690058]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wd6yy")
+
+[node name="Label" type="Label" parent="." unique_id=657471947]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "2"

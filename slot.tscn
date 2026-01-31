@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dd3ppdnkci0bj" path="res://Assets/inventory_texture.png" id="1_cv2pd"]
 [ext_resource type="Script" uid="uid://bbjquki8q2j8t" path="res://slot.gd" id="2_g5ktd"]
+[ext_resource type="PackedScene" uid="uid://cstc5egjh3n2s" path="res://cooldown_timer.tscn" id="3_hiqfk"]
 
 [node name="Slot" type="TextureRect" unique_id=1566712699]
 custom_minimum_size = Vector2(50, 50)
@@ -19,3 +20,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0, 0, 0)
+
+[node name="CooldownTimer" parent="." unique_id=832690058 instance=ExtResource("3_hiqfk")]
+z_index = 200
+layout_mode = 0
+color = Color(0.21568628, 0.21568628, 0.21568628, 0.7490196)

@@ -1,32 +1,17 @@
 {
   "1": {
-	"Name": "Item1",
+	"Name": "T_RiotShield01",
 	"Value": 10,
-	"Grid": "0,0/0,1/-1,0"
+	"Grid": "0,0/0,1/1,0/1,1"
   },
   "2": {
-	"Name": "Item2",
+	"Name": "T_Dagger01",
 	"Value": 20,
 	"Grid": "0,0/0,1"
   },
   "3": {
-	"Name": "Item3",
-	"Value": 30,
-	"Grid": "0,0/1,0"
+	"Name": "T_Katana01",
+	"Value": 20,
+	"Grid": "0,0/1,0/2,0/-1,0/-2,0"
   },
-  "4": {
-	"Name": "Item4",
-	"Value": 40,
-	"Grid": "0,0/1,0/0,1/1,1"
-  },
-  "5": {
-	"Name": "Item5",
-	"Value": 40,
-	"Grid": "0,0/0,1/-1,0"
-  },
-  "6": {
-	"Name": "Item6",
-	"Value": 60,
-	"Grid": "0,0/1,0/2,0/2,1", 
-  }
 }
