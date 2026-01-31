@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dmtnyoqihnxsc"]
 
+[ext_resource type="Script" uid="uid://c1guf1qhfvqks" path="res://JacobsPlayground/HealthBar.cs" id="1_wtvsl"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ulg4r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtvsl"]
@@ -18,12 +20,13 @@ shadow_offset = Vector2(0, 1)
 bg_color = Color(1, 1, 1, 1)
 
 [node name="HealthBar" type="ProgressBar" unique_id=968013164]
-offset_right = 120.0
+offset_right = 240.0
 offset_bottom = 20.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_ulg4r")
 theme_override_styles/fill = SubResource("StyleBoxFlat_wtvsl")
 value = 60.0
 show_percentage = false
+script = ExtResource("1_wtvsl")
 
 [node name="DamageBar" type="ProgressBar" parent="." unique_id=1406879116]
 z_index = -1
@@ -41,3 +44,5 @@ show_percentage = false
 [node name="Timer" type="Timer" parent="." unique_id=1578753001]
 wait_time = 0.4
 one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
