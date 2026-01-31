@@ -15,9 +15,30 @@ public partial class DamageStep : AGameStep
 		enemy.TakeDamage(playerDamage);
 
 		var enemyDamage = enemy.DealDamage();
+		player.TakeDamage(playerDamage);
+
 		//Check Health
+		var playerDead = player.IsDead();
+		var enemyDead = enemy.IsDead();
+
+		//Neither health is depleated -> tell gameloop to got to place mask
+		if (!playerDead && !enemyDead)
+		{
+			gameLoop.GoToStep(GameSteps.Place);
+			return;
+		}
+
+		if (playerDead)
+		{
+			player.Die();
+		}
+		else
+		{
+			enemy.Die();
+		}
+
 		//Either health reaches 0 -> tell gameloop to go to end
-		//Neither health is depleated -> tell gamelop to got to place mask
+		gameLoop.GoToStep(GameSteps.End);
 	}
 
     public override void Exit()
