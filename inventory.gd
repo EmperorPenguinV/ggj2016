@@ -10,6 +10,8 @@ extends Control
 @onready var grid_container2: GridContainer = $Background2/MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 @export var cooldown: int = 2
 
+signal mask_placed(damage : int, armor : int)
+
 var grid_array: Array[Slot] = []
 var item_held: Item = null
 var mask_held: Mask = null
