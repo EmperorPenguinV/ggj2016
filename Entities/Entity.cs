@@ -25,8 +25,10 @@ public partial class Entity : Node, IDamageable
 
 	public void TakeDamage(AttackData attack)
 	{
-		int reducedHealth = currentHealth - attack.Damage;
+		int damage = attack.Damage;
+		int reducedHealth = currentHealth - damage;
 		SetHealth(reducedHealth);
+		GD.Print($"{Name} took {damage} damage!");
 	}
 
 	public bool IsDead()
