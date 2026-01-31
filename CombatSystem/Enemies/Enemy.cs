@@ -11,10 +11,7 @@ public partial class Enemy : Node, IDamageable
 	public string Description => data.Description;
 	public int MaxHealth => data.MaxHealth;
 	public int Health => currentHealth;
-	public int BaseDamage => data.BaseDamage;
-
-	// TODO: Get damage value from inventory
-	public int Damage => BaseDamage;
+	public int Damage => data.BaseDamage;
 
 	public override void _Ready()
 	{

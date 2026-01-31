@@ -13,6 +13,8 @@ public partial class Player : Node
   public int Health => currentHealth;
   public int Armor => currentArmor;
 
+  // TODO: Get damage value from inventory
+
   public override void _Ready()
   {
     currentHealth = MaxHealth;
