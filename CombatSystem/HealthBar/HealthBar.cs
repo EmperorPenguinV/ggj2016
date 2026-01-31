@@ -9,12 +9,13 @@ public partial class HealthBar : ProgressBar
 
 	int Health { get { return health; } set { SetHealth(value); } }
 
-
+	public override void _Ready()
+	{
+		timer.Timeout += OnTimerTimeout;
+	}
 
 	public void InitHealth(int initialHealth)
 	{
-		timer.Connect("_on_timer_timeout", Callable.From(() => OnTimerTimeout()));
-
 		health = initialHealth;
 		MaxValue = initialHealth;
 		Value = initialHealth;
