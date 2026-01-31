@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class DamageStep : AGameStep
 {
@@ -9,16 +8,38 @@ public partial class DamageStep : AGameStep
 
 	public override GameSteps Identifier => GameSteps.Damage;
 
-    public override void Enter()
+    public override void Enter(GameLoop gameLoop)
 	{
 		//Damage player and enemy
 		var playerDamage = player.DealDamage();
 		enemy.TakeDamage(playerDamage);
 
 		var enemyDamage = enemy.DealDamage();
+		player.TakeDamage(playerDamage);
+
 		//Check Health
+		var playerDead = player.IsDead();
+		var enemyDead = enemy.IsDead();
+
+		//Neither health is depleated -> tell gameloop to got to place mask
+		if (!playerDead && !enemyDead)
+		{
+			gameLoop.GoToStep(GameSteps.Place);
+			return;
+		}
+
+		if (playerDead)
+		{
+			player.Die();
+		}
+		
+		if(enemyDead)
+		{
+			enemy.Die();
+		}
+
 		//Either health reaches 0 -> tell gameloop to go to end
-		//Neither health is depleated -> tell gamelop to got to place mask
+		gameLoop.GoToStep(GameSteps.End);
 	}
 
     public override void Exit()

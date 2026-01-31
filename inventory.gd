@@ -179,22 +179,24 @@ func place_mask():
 	mask_held.global_position = get_global_mouse_position()
 	
 	var masked_items = []
-	var grid_ids = []
 	for grid in mask_held.mask_grids:
 		var grid_to_check = current_slot.slot_ID + grid[0] + grid[1] * col_count
 		if grid_array[grid_to_check].States.TAKEN:
 			if grid_array[grid_to_check].cooldown_timer.cooldown == 0:
-				masked_items.append(grid_array[grid_to_check].item_stored)
-				grid_ids.append(grid_to_check)
+				if grid_array[grid_to_check].item_stored:
+					masked_items.append(grid_array[grid_to_check].item_stored)
 			grid_array[grid_to_check].cooldown_timer.cooldown += cooldown_per_activation
-			print(grid_array[grid_to_check].cooldown_timer.cooldown)
 	
 	mask_held = null
+	
+	var damage = 0
+	var armor = 0
+	for masked_item in masked_items:
+		damage += masked_item.damage
+		armor += masked_item.armor
+
 	clear_grid()
-	print("Masked Items:")
-	print(masked_items)
-	print("Grid Ids:")
-	print(grid_ids)
+	mask_placed.emit(damage, armor)
 
 func pick_item():
 	if not current_slot or not current_slot.item_stored: 

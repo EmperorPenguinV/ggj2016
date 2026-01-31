@@ -1,3 +1,39 @@
 [gd_scene format=3 uid="uid://tausu61jfqy8"]
 
+[ext_resource type="PackedScene" path="res://inventory.tscn" id="1_2wl7v"]
+[ext_resource type="Script" uid="uid://jlyxb30bem5u" path="res://Gameloop/GameLoop.cs" id="2_kilg5"]
+[ext_resource type="Script" uid="uid://bl0eqh1j7e8h" path="res://Gameloop/InitializeStep.cs" id="3_x6js8"]
+[ext_resource type="Script" uid="uid://bhb3tl3nku1sj" path="res://Gameloop/PlaceMaskStep.cs" id="4_lg2j6"]
+[ext_resource type="Script" uid="uid://7bf6hxx24pbe" path="res://Gameloop/DamageStep.cs" id="5_y30xb"]
+[ext_resource type="Script" uid="uid://cg2hd6jvxmmu8" path="res://Gameloop/EndStep.cs" id="6_xhjei"]
+[ext_resource type="PackedScene" uid="uid://b51tkcnke32fs" path="res://CombatSystem/Player/player_prefab.tscn" id="7_lg2j6"]
+[ext_resource type="PackedScene" uid="uid://b728gqyo7afnq" path="res://CombatSystem/Enemies/enemy_prefab.tscn" id="8_y30xb"]
+
 [node name="GameScene" type="Node2D" unique_id=1839778512]
+
+[node name="Inventory" parent="." unique_id=1887341990 instance=ExtResource("1_2wl7v")]
+
+[node name="GameLoop" type="Node" parent="." unique_id=960253668]
+script = ExtResource("2_kilg5")
+
+[node name="Initialize" type="Node" parent="GameLoop" unique_id=1088468562]
+script = ExtResource("3_x6js8")
+
+[node name="Place" type="Node" parent="GameLoop" unique_id=1365925195 node_paths=PackedStringArray("inventoryGd", "player")]
+script = ExtResource("4_lg2j6")
+inventoryGd = NodePath("../../Inventory")
+player = NodePath("../../Player")
+
+[node name="Damage" type="Node" parent="GameLoop" unique_id=896875935 node_paths=PackedStringArray("player", "enemy")]
+script = ExtResource("5_y30xb")
+player = NodePath("../../Player")
+enemy = NodePath("../../Enemy")
+
+[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("player", "enemy")]
+script = ExtResource("6_xhjei")
+player = NodePath("../../Player")
+enemy = NodePath("../../Enemy")
+
+[node name="Player" parent="." unique_id=1453012715 instance=ExtResource("7_lg2j6")]
+
+[node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("8_y30xb")]
