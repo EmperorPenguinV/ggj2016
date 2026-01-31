@@ -9,8 +9,7 @@ public partial class Player : Node, IDamageable
 
 	[Export] private Node inventoryGd;
 
-	[Signal]
-	public delegate void HealthChangedEventHandler(int health);
+	[Signal] public delegate void HealthChangedEventHandler(int health);
 
 	// David Getter
 	public string Name => data.Name;
