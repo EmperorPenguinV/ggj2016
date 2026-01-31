@@ -13,7 +13,7 @@ public partial class HealthBar : ProgressBar
 
 	public void InitHealth(int initialHealth)
 	{
-		timer.Connect("_on_timer_timeout", Callable.From(() => OnTImerTimeout()));
+		timer.Connect("_on_timer_timeout", Callable.From(() => OnTimerTimeout()));
 
 		health = initialHealth;
 		MaxValue = initialHealth;
@@ -44,7 +44,7 @@ public partial class HealthBar : ProgressBar
 		}
 	}
 
-	void OnTImerTimeout()
+	void OnTimerTimeout()
 	{
 		damageBar.Value = health;
 	}
