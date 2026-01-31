@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://pl7i4q0kt2jf"]
+
+[ext_resource type="PackedScene" uid="uid://b728gqyo7afnq" path="res://CombatSystem/Enemies/enemy_prefab.tscn" id="2_3rlm5"]
+[ext_resource type="PackedScene" uid="uid://b51tkcnke32fs" path="res://CombatSystem/Player/player_prefab.tscn" id="2_4yn53"]
+[ext_resource type="Script" uid="uid://dc2of5pltvq80" path="res://CombatSystem/_Example/AttackButton.cs" id="3_jjh12"]
+[ext_resource type="Resource" uid="uid://ci4frwh6goa03" path="res://CombatSystem/_Example/example_attack.tres" id="4_0jrkc"]
+
+[node name="Node2D" type="Node2D" unique_id=177518772]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2087541407]
+
+[node name="Damage Player" type="Button" parent="CanvasLayer" unique_id=1218637092]
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.01
+offset_right = 19.59999
+offset_bottom = 57.52
+text = "Damage Player!"
+script = ExtResource("3_jjh12")
+AttackData = ExtResource("4_0jrkc")
+Damagable = NodePath("../../Player")
+
+[node name="Damage Enemy" type="Button" parent="CanvasLayer" unique_id=1260792576]
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 0.01
+offset_top = 72.0
+offset_right = 19.59999
+offset_bottom = 129.52
+text = "Inflict PAIN to enemy!"
+script = ExtResource("3_jjh12")
+AttackData = ExtResource("4_0jrkc")
+Damagable = NodePath("../../Enemy")
+
+[node name="Player" parent="." unique_id=1453012715 instance=ExtResource("2_4yn53")]
+
+[node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("2_3rlm5")]
