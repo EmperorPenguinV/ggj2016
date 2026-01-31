@@ -30,9 +30,6 @@ public partial class HealthBar : ProgressBar
 		health = newHealth;
 		Value = health;
 
-		if (health <= 0)
-			QueueFree();
-
 		// taking damage
 		if (health < previousHealth)
 		{
