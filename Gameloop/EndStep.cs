@@ -14,6 +14,24 @@ public partial class EndStep : AGameStep
 		var playerDead = player.IsDead();
 		var enemyDead = enemy.IsDead();
 
+		if (playerDead && enemyDead)
+		{
+			GD.Print($"Draw");
+			return;
+		}
+
+		if (playerDead)
+		{
+			GD.Print($"Player lost");
+			return;
+		}
+		
+		if(enemyDead)
+		{
+			GD.Print($"Player won");
+			return;
+		}
+
 		//if player has no more health -> you lost
 		//if enemy has no more health -> you won
 		//Await continue button

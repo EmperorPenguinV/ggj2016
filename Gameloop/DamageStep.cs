@@ -15,7 +15,7 @@ public partial class DamageStep : AGameStep
 		enemy.TakeDamage(playerDamage);
 
 		var enemyDamage = enemy.DealDamage();
-		player.TakeDamage(playerDamage);
+		player.TakeDamage(enemyDamage);
 
 		//Check Health
 		var playerDead = player.IsDead();

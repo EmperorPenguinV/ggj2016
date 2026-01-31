@@ -11,6 +11,7 @@ extends Control
 @export var cooldown_per_activation: int = 2
 
 signal mask_placed(damage : int, armor : int)
+signal item_placed()
 
 var grid_array: Array[Slot] = []
 var item_held: Item = null
@@ -170,6 +171,7 @@ func place_item():
 	#put item into a data storage here
 	item_held = null
 	clear_grid()
+	item_placed.emit()
 
 func place_mask():
 	if not can_place or not current_slot: 
@@ -223,7 +225,7 @@ func _on_add_slot_pressed():
 	create_slot()
 
 
-func _on_get_mask_pressed() -> void:
+func _on_get_mask() -> void:
 	var new_mask = mask_scene.instantiate()
 	add_child(new_mask)
 	new_mask.load_mask(randi_range(1,6))    #randomize this for different items to spawn

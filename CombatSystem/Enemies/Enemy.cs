@@ -35,6 +35,9 @@ public partial class Enemy : Node, IDamageable
 
 	public AttackData DealDamage()
 	{
+		//ToDo: Roll enemy damage
+		currentDamage = data.BaseDamage;
+
 		return new AttackData
 		{
 			Damage = currentDamage
