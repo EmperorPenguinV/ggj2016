@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cg2hd6jvxmmu8" path="res://Gameloop/EndStep.cs" id="6_xhjei"]
 [ext_resource type="PackedScene" uid="uid://b728gqyo7afnq" path="res://Entities/Enemies/enemy_prefab.tscn" id="8_y30xb"]
 [ext_resource type="PackedScene" uid="uid://b51tkcnke32fs" path="res://Entities/Player/player_prefab.tscn" id="9_xhjei"]
+[ext_resource type="Resource" path="res://Data/player_startingvalues.tres" id="10_xhjei"]
 
 [node name="GameScene" type="Node2D" unique_id=1839778512 node_paths=PackedStringArray("gameLoop")]
 script = ExtResource("1_y30xb")
@@ -41,3 +42,4 @@ enemy = NodePath("../../Enemy")
 [node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("8_y30xb")]
 
 [node name="Player" parent="." unique_id=1453012715 instance=ExtResource("9_xhjei")]
+Data = ExtResource("10_xhjei")

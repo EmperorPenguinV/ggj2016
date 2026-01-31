@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dtypqesroo7wb"]
+
+[ext_resource type="Script" uid="uid://dc2of5pltvq80" path="res://CombatSystem/_Example/AttackButton.cs" id="1_qhm12"]
+[ext_resource type="PackedScene" uid="uid://b728gqyo7afnq" path="res://Entities/Enemies/enemy_prefab.tscn" id="2_baam3"]
+[ext_resource type="Resource" uid="uid://ci4frwh6goa03" path="res://CombatSystem/_Example/example_attack.tres" id="2_cnuqa"]
+[ext_resource type="PackedScene" uid="uid://b51tkcnke32fs" path="res://Entities/Player/player_prefab.tscn" id="3_baam3"]
+
+[node name="ExampleCombat" type="Node2D" unique_id=1691078505]
+
+[node name="Player" parent="." unique_id=1453012715 instance=ExtResource("3_baam3")]
+
+[node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("2_baam3")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1167379329]
+
+[node name="DamagePlayer" type="Button" parent="CanvasLayer" unique_id=942910653]
+offset_right = 125.0
+offset_bottom = 31.0
+text = "Damage Player"
+script = ExtResource("1_qhm12")
+AttackData = ExtResource("2_cnuqa")
+Damagable = NodePath("../../Player")
+
+[node name="DamageEnemy" type="Button" parent="CanvasLayer" unique_id=424922860]
+offset_top = 38.0
+offset_right = 125.0
+offset_bottom = 69.0
+text = "Damage Enemy"
+script = ExtResource("1_qhm12")
+AttackData = ExtResource("2_cnuqa")
+Damagable = NodePath("../../Enemy")

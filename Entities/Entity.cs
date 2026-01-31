@@ -30,7 +30,11 @@ public partial class Entity : Node, IDamageable
 
 	public virtual void TakeDamage(AttackData attack)
 	{
+		var damage = attack.Damage;
+		GD.Print($"{Name} took {damage} damage!");
+
 		var reducedHealth = Mathf.Clamp(currentHealth - attack.Damage, 0, MaxHealth);
+
 		SetHealth(reducedHealth);
 	}
 
