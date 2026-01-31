@@ -20,8 +20,10 @@ shadow_offset = Vector2(0, 1)
 bg_color = Color(1, 1, 1, 1)
 
 [node name="HealthBar" type="ProgressBar" unique_id=968013164 node_paths=PackedStringArray("timer", "damageBar")]
-offset_right = 240.0
-offset_bottom = 20.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 241.0
+offset_bottom = 21.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_ulg4r")
 theme_override_styles/fill = SubResource("StyleBoxFlat_wtvsl")
 value = 60.0
