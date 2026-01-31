@@ -30,12 +30,12 @@ public partial class HealthBar : ProgressBar
 		health = newHealth;
 		Value = health;
 
-		// taking damage
+		// takes damage, delays update of damage bar to visualize dealt damage
 		if (health < previousHealth)
 		{
 			timer.Start();
 		}
-		// health increase
+		// instantly updates damage bar on health increase
 		else
 		{
 			damageBar.Value = health;
