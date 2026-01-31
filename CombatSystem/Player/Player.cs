@@ -2,75 +2,79 @@ using Godot;
 
 public partial class Player : Node, IDamageable
 {
-	[Export] private PlayerData data;
+  [Export] private PlayerData data;
 
-	[Export] private int currentHealth;
-	[Export] private int currentArmor;
+  [Export] private int currentHealth;
+  [Export] private int currentArmor;
 
-	[Export] private Node inventoryGd;
+  [Export] private Node inventoryGd;
+  [Export] private HealthBar healthBar;
 
-	[Signal] public delegate void HealthChangedEventHandler(int health);
+  [Signal] public delegate void HealthChangedEventHandler(int health);
 
-	// David Getter
-	public string Name => data.Name;
-	public int MaxHealth => data.MaxHealth;
-	public int Health => currentHealth;
-	public int Armor => currentArmor;
+  // David Getter
+  public string Name => data.Name;
+  public int MaxHealth => data.MaxHealth;
+  public int Health => currentHealth;
+  public int Armor => currentArmor;
 
-	private int currentDamage;
+  private int currentDamage;
 
-	public override void _Ready()
-	{
-		currentHealth = data.MaxHealth;
-		GD.Print($"{Name} spawned | HP={Health}");
+  public override void _Ready()
+  {
+    currentHealth = data.MaxHealth;
+    healthBar.InitHealth(Health);
+    HealthChanged += healthBar.SetHealth;
 
-		inventoryGd.Connect("mask_placed", Callable.From((int damage, int armor) => OnInventoryUpdated(damage, armor)));
-	}
+    GD.Print($"{Name} spawned | HP={Health}");
 
-	public void TakeDamage(AttackData attack)
-	{
-		var damage = attack.Damage;
-		damage -= currentArmor;
+    inventoryGd.Connect("mask_placed", Callable.From((int damage, int armor) => OnInventoryUpdated(damage, armor)));
+  }
 
-		if (damage <= 0)
-		{
-			GD.Print($"{Name} hit for 0 damage because it was migigated by armor");
-			return;
-		}
+  public void TakeDamage(AttackData attack)
+  {
+    var damage = attack.Damage;
+    damage -= currentArmor;
 
-		currentHealth = Mathf.Clamp(currentHealth - attack.Damage, 0, MaxHealth);
-		EmitSignal(SignalName.HealthChanged, currentHealth);
+    if (damage <= 0)
+    {
+      GD.Print($"{Name} hit for 0 damage because it was migigated by armor");
+      return;
+    }
 
-		GD.Print($"{Name} hit for {attack.Damage} damage. HP={Health}");
-	}
+    currentHealth = Mathf.Clamp(currentHealth - attack.Damage, 0, MaxHealth);
+    EmitSignal(SignalName.HealthChanged, currentHealth);
 
-	public AttackData DealDamage()
-	{
-		return new AttackData
-		{
-			Damage = currentDamage
-		};
-	}
+    GD.Print($"{Name} hit for {attack.Damage} damage. HP={Health}");
+  }
 
-	public void HealDamage(int heal)
-	{
-		currentHealth = Mathf.Clamp(currentHealth + heal, 0, MaxHealth);
-		EmitSignal(SignalName.HealthChanged, currentHealth);
-	}
+  public AttackData DealDamage()
+  {
+    return new AttackData
+    {
+      Damage = currentDamage
+    };
+  }
 
-	public bool IsDead()
-	{
-		return currentHealth <= 0;
-	}
+  public void HealDamage(int heal)
+  {
+    currentHealth = Mathf.Clamp(currentHealth + heal, 0, MaxHealth);
+    EmitSignal(SignalName.HealthChanged, currentHealth);
+  }
 
-	public void Die()
-	{
-		GD.Print($"{Name} died.");
-	}
+  public bool IsDead()
+  {
+    return currentHealth <= 0;
+  }
 
-	private void OnInventoryUpdated(int damage, int armor)
-	{
-		currentArmor = armor;
-		currentDamage = damage;
-	}
+  public void Die()
+  {
+    GD.Print($"{Name} died.");
+  }
+
+  private void OnInventoryUpdated(int damage, int armor)
+  {
+    currentArmor = armor;
+    currentDamage = damage;
+  }
 }
