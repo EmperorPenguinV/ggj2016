@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Attack" format=3 uid="uid://ci4frwh6goa03"]
+
+[ext_resource type="Script" uid="uid://bacge7mdofh4l" path="res://CombatSystem/AttackData.cs" id="1_8ykrk"]
+
+[resource]
+script = ExtResource("1_8ykrk")
+Name = "Super Ultra Fatal Basic Attack"
+Damage = 12
+metadata/_custom_type_script = "uid://bacge7mdofh4l"
