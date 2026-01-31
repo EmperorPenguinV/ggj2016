@@ -27,12 +27,12 @@ public partial class Player : Node
             $"{Name} hit for {attack.Damage} damage. HP={Health}"
         );
 
-    CheckDeath();
+    if (IsDead()) Die();
   }
 
-  public void CheckDeath()
+  public bool IsDead()
   {
-    if (currentHealth <= 0) Die();
+    return currentHealth <= 0;
   }
 
   private void Die()

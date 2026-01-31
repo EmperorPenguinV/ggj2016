@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Enemy : Node
+public partial class Enemy : Node, IDamageable
 {
 	[Export] private EnemyData data;
 
@@ -12,17 +12,14 @@ public partial class Enemy : Node
 	public int MaxHealth => data.MaxHealth;
 	public int Health => currentHealth;
 	public int BaseDamage => data.BaseDamage;
-	public int Damage => GetDamage();
+
+	// TODO: Get damage value from inventory
+	public int Damage => BaseDamage;
 
 	public override void _Ready()
 	{
 		currentHealth = MaxHealth;
 		GD.Print($"Enemy spawned | HP={Health} | DMG={Damage}");
-	}
-
-	public int GetDamage()
-	{
-		return BaseDamage;
 	}
 
 	public void TakeDamage(AttackData attack)
@@ -33,12 +30,12 @@ public partial class Enemy : Node
 						$"{Name} hit for {attack.Damage} damage. HP={Health}"
 				);
 
-		CheckDeath();
+		if (IsDead()) Die();
 	}
 
-	public void CheckDeath()
+	public bool IsDead()
 	{
-		if (currentHealth <= 0) Die();
+		return currentHealth <= 0;
 	}
 
 	private void Die()
