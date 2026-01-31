@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmtnyoqihnxsc"]
 
-[ext_resource type="Script" uid="uid://c1guf1qhfvqks" path="res://JacobsPlayground/HealthBar.cs" id="1_wtvsl"]
+[ext_resource type="Script" uid="uid://c1guf1qhfvqks" path="res://CombatSystem/HealthBar/HealthBar.cs" id="1_wtvsl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ulg4r"]
 
