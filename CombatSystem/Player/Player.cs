@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Player : Node
+public partial class Player : Node, IDamageable
 {
   [Export] private PlayerData data;
 
@@ -17,8 +17,8 @@ public partial class Player : Node
 
   public override void _Ready()
   {
-    currentHealth = MaxHealth;
-    GD.Print($"Player {Name} spawned | HP={Health}");
+    currentHealth = data.MaxHealth;
+    GD.Print($"{Name} spawned | HP={Health}");
   }
 
   public void TakeDamage(AttackData attack)
