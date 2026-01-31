@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bc04l16us6dh1"]
 
-[ext_resource type="Script" uid="uid://cbnjax8txpat8" path="res://CombatSystem/Enemies/EnemyData.cs" id="1_3mmam"]
+[ext_resource type="Script" uid="uid://cbnjax8txpat8" path="res://CombatSystem/Enemies/EnemyData.cs" id="1_1jlvc"]
 
 [resource]
-script = ExtResource("1_3mmam")
+script = ExtResource("1_1jlvc")
 Name = "Basic Enemy"
 Description = "A very basic enemy."
 MaxHealth = 80
