@@ -7,10 +7,7 @@ public partial class Player : Node, IDamageable
 	[Export] private int currentHealth;
 	[Export] private int currentArmor;
 
-	[Export] private Node inventoryGd;
-
-	[Signal]
-	public delegate void HealthChangedEventHandler(int health);
+	[Signal] public delegate void HealthChangedEventHandler(int health);
 
 	// David Getter
 	public string Name => data.Name;
@@ -20,12 +17,23 @@ public partial class Player : Node, IDamageable
 
 	private int currentDamage;
 
+	private Callable inventoryUpdate;
+
 	public override void _Ready()
 	{
 		currentHealth = data.MaxHealth;
 		GD.Print($"{Name} spawned | HP={Health}");
+		inventoryUpdate = Callable.From((int damage, int armor) => OnInventoryUpdated(damage, armor));
+	}
 
-		inventoryGd.Connect("mask_placed", Callable.From((int damage, int armor) => OnInventoryUpdated(damage, armor)));
+	public void ConnectInventory(Node inventoryGd)
+	{
+		inventoryGd.Connect("mask_placed", inventoryUpdate);
+	}
+
+	public void DisconnectInventory(Node inventoryGd)
+	{
+		inventoryGd.Disconnect("mask_placed", inventoryUpdate);
 	}
 
 	public void TakeDamage(AttackData attack)
