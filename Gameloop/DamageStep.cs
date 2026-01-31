@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class DamageStep : AGameStep
 {
@@ -9,7 +8,7 @@ public partial class DamageStep : AGameStep
 
 	public override GameSteps Identifier => GameSteps.Damage;
 
-    public override void Enter()
+    public override void Enter(GameLoop gameLoop)
 	{
 		//Damage player and enemy
 		var playerDamage = player.DealDamage();

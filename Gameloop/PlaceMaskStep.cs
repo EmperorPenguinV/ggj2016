@@ -5,7 +5,7 @@ public partial class PlaceMaskStep : AGameStep
 {
 	public override GameSteps Identifier => GameSteps.Place;
 
-    public override void Enter()
+    public override void Enter(GameLoop gameLoop)
 	{
 		//Snap next mask to mouse
 		//Move up mask preview

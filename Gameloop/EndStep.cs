@@ -5,7 +5,7 @@ public partial class EndStep : AGameStep
 {
 	public override GameSteps Identifier => GameSteps.End;
 
-    public override void Enter()
+    public override void Enter(GameLoop gameLoop)
 	{
 		//Check Health
 		//if player has no more health -> you lost
