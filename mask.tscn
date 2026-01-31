@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c5eb5usbg13yv"]
+
+[ext_resource type="Script" uid="uid://w8lbgolcr0ge" path="res://mask.gd" id="1_b0qmb"]
+
+[node name="Mask" type="Node2D" unique_id=1364918510]
+script = ExtResource("1_b0qmb")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=907819920]
+offset_right = 40.0
+offset_bottom = 40.0
