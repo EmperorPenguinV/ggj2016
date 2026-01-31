@@ -33,5 +33,6 @@ AttackData = ExtResource("4_0jrkc")
 Damagable = NodePath("../../Enemy")
 
 [node name="Player" parent="." unique_id=1453012715 instance=ExtResource("2_4yn53")]
+position = Vector2(0, 200)
 
 [node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("2_3rlm5")]
