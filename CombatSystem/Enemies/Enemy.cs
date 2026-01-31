@@ -15,8 +15,8 @@ public partial class Enemy : Node, IDamageable
 
 	public override void _Ready()
 	{
-		currentHealth = MaxHealth;
-		GD.Print($"Enemy spawned | HP={Health} | DMG={Damage}");
+		currentHealth = data.MaxHealth;
+		GD.Print($"{Name} spawned | HP={Health} | DMG={Damage}");
 	}
 
 	public void TakeDamage(AttackData attack)
