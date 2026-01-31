@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://b728gqyo7afnq"]
-
-[ext_resource type="Script" uid="uid://ce1ce54884s5q" path="res://CombatSystem/Enemies/Enemy.cs" id="1_eva56"]
-[ext_resource type="Resource" uid="uid://bc04l16us6dh1" path="res://CombatSystem/Enemies/EnemyData/enemy_basic.tres" id="2_gp6s1"]
-
-[node name="Enemy" type="Node2D" unique_id=1525909285]
-script = ExtResource("1_eva56")
-data = ExtResource("2_gp6s1")

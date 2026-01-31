@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://b51tkcnke32fs"]
-
-[ext_resource type="Script" uid="uid://beu3c0ggo317n" path="res://CombatSystem/Player/Player.cs" id="1_wj3ea"]
-[ext_resource type="Resource" uid="uid://dwjvof5oh0w77" path="res://CombatSystem/Player/player_startingvalues.tres" id="2_id7cp"]
-
-[node name="Player" type="Node2D" unique_id=1453012715]
-script = ExtResource("1_wj3ea")
-data = ExtResource("2_id7cp")
