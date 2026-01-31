@@ -1,10 +1,8 @@
 using Godot;
 
 [GlobalClass]
-public partial class EnemyData : Resource
+public partial class EnemyData : EntityData
 {
-	[Export] public string Name;
 	[Export] public string Description;
-	[Export] public int MaxHealth;
 	[Export] public int BaseDamage;
 }

@@ -1,8 +1,6 @@
 using Godot;
 
 [GlobalClass]
-public partial class PlayerData : Resource
+public partial class PlayerData : EntityData
 {
-  [Export] public string Name;
-  [Export] public int MaxHealth;
 }
