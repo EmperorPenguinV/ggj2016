@@ -15,12 +15,15 @@ public partial class Enemy : Node, IDamageable
 	public int Health => currentHealth;
 	public int Damage => data.BaseDamage;
 
+	private int currentDamage;
+
 	public override void _Ready()
 	{
 		currentHealth = data.MaxHealth;
 		GD.Print($"{Name} spawned | HP={Health} | DMG={Damage}");
 	}
-public void TakeDamage(AttackData attack)
+
+	public void TakeDamage(AttackData attack)
 	{
 		var damage = attack.Damage;
 
