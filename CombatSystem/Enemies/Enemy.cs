@@ -30,7 +30,7 @@ public partial class Enemy : Node
 		currentHealth -= attack.Damage;
 
 		GD.Print(
-						$"{Name} hit by {attack.Name} for {attack.Damage} damage. HP={Health}"
+						$"{Name} hit for {attack.Damage} damage. HP={Health}"
 				);
 
 		CheckDeath();
