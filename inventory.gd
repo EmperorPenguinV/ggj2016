@@ -8,7 +8,7 @@ extends Control
 @onready var scroll_container: ScrollContainer = $Background/MarginContainer/VBoxContainer/ScrollContainer
 @onready var col_count: int = grid_container.columns #save column number
 @onready var grid_container2: GridContainer = $Background2/MarginContainer/VBoxContainer/ScrollContainer/GridContainer
-@export var cooldown: int = 2
+@export var cooldown_per_activation: int = 2
 
 var grid_array: Array[Slot] = []
 var item_held: Item = null
@@ -38,6 +38,7 @@ func _process(_delta):
 			
 		if Input.is_action_just_pressed("mouse_leftclick"):
 			if scroll_container.get_global_rect().has_point(get_global_mouse_position()):
+				reduce_cooldowns()
 				place_mask()
 	else:
 		if Input.is_action_just_pressed("mouse_leftclick"):
@@ -51,7 +52,7 @@ func create_slot():
 	grid_container.add_child(new_slot)
 	grid_array.push_back(new_slot)
 	new_slot.slot_entered.connect(_on_slot_mouse_entered)
-	new_slot.slot_exited.connect(_on_slot_mouse_exited)
+	new_slot.slot_exited.connect(_on_slot_mouse_exited)	
 	pass
 
 
@@ -74,7 +75,7 @@ func _on_slot_mouse_exited(_a_Slot):
 func _on_button_spawn_pressed():
 	var new_item = item_scene.instantiate()
 	add_child(new_item)
-	new_item.load_item(randi_range(1,6))    #randomize this for different items to spawn
+	new_item.load_item(randi_range(1,3))    #randomize this for different items to spawn
 	new_item.selected = true
 	item_held = new_item
 	
@@ -180,14 +181,17 @@ func place_mask():
 	for grid in mask_held.mask_grids:
 		var grid_to_check = current_slot.slot_ID + grid[0] + grid[1] * col_count
 		if grid_array[grid_to_check].States.TAKEN:
-			masked_items.append(grid_array[grid_to_check].item_stored)
-			grid_ids.append(grid_to_check)
-			grid_array[grid_to_check].cooldown += cooldown
-			print(grid_array[grid_to_check])
+			if grid_array[grid_to_check].cooldown_timer.cooldown == 0:
+				masked_items.append(grid_array[grid_to_check].item_stored)
+				grid_ids.append(grid_to_check)
+			grid_array[grid_to_check].cooldown_timer.cooldown += cooldown_per_activation
+			print(grid_array[grid_to_check].cooldown_timer.cooldown)
 	
 	mask_held = null
 	clear_grid()
+	print("Masked Items:")
 	print(masked_items)
+	print("Grid Ids:")
 	print(grid_ids)
 
 func pick_item():
@@ -222,3 +226,9 @@ func _on_get_mask_pressed() -> void:
 	new_mask.selected = true
 	mask_held = new_mask
 	pass # Replace with function body.
+
+
+func reduce_cooldowns() -> void:
+	for slot in grid_array:
+		if slot.cooldown_timer.cooldown > 0:
+			slot.cooldown_timer.cooldown -= 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://162ghk8254m3"
-path="res://.godot/imported/Item2.png-a2cf896e918b0ceb1a052973b4512596.ctex"
+uid="uid://cx1lnhcwvg86b"
+path="res://.godot/imported/T_RiotShield01.png-23e25180ac01213af8b0784691a1b3dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Item2.png"
-dest_files=["res://.godot/imported/Item2.png-a2cf896e918b0ceb1a052973b4512596.ctex"]
+source_file="res://Assets/T_RiotShield01.png"
+dest_files=["res://.godot/imported/T_RiotShield01.png-23e25180ac01213af8b0784691a1b3dd.ctex"]
 
 [params]
 

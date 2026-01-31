@@ -5,13 +5,13 @@ signal slot_entered(slot)
 signal slot_exited(slot)
 
 @onready var filter = $StatusFilter
+@onready var cooldown_timer: CooldownTimer = $CooldownTimer
 
 var slot_ID : int
 var is_hovering:=false
 enum States {DEFAULT, TAKEN, FREE}
 var state = States.DEFAULT
 var item_stored: Item = null
-var cooldown: int = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,8 +19,9 @@ func _ready():
 	pass # Replace with function body.
 
 func set_color(a_state = States.DEFAULT) -> void :
-	if cooldown > 0:
+	if cooldown_timer.cooldown > 0 && a_state != States.DEFAULT:
 		filter.color = Color(Color.GOLD, 0.2)
+		return
 	match a_state:
 		States.DEFAULT:
 			filter.color = Color(Color.WHITE, 0.0)
