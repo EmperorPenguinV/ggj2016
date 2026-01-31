@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Player : Entity
 {
-  [Export] private PlayerData data;
+  protected PlayerData PlayerData => (PlayerData)Data;
 
   [Export] private int currentArmor;
 

@@ -3,18 +3,18 @@ using System;
 
 public partial class Entity : Node, IDamageable
 {
-	[Export] private EntityData data;
+	[Export] protected EntityData Data;
 
 	[Export] int currentHealth;
 
 	// David Getter
-	public new string Name => data.Name;
-	public int MaxHealth => data.MaxHealth;
+	public new string Name => Data.Name;
+	public int MaxHealth => Data.MaxHealth;
 	public int Health => currentHealth;
 
 	public override void _Ready()
 	{
-		currentHealth = data.MaxHealth;
+		currentHealth = Data.MaxHealth;
 		GD.Print($"{Name} spawned | HP={Health}");
 	}
 

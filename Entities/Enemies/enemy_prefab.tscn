@@ -5,4 +5,4 @@
 
 [node name="Enemy" type="Node2D" unique_id=1525909285]
 script = ExtResource("1_eva56")
-data = ExtResource("2_gp6s1")
+Data = ExtResource("2_gp6s1")
