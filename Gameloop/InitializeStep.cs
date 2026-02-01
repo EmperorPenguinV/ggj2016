@@ -21,7 +21,11 @@ public partial class InitializeStep : AGameStep
 		level++;
 
 		enemy.Initialize();
-		player.Initialize();
+
+		if (level == 0)
+		{
+			player.Initialize();
+		}
 
 		//Go to Place mask
 		gameLoop.GoToStep(GameSteps.Place);
@@ -36,4 +40,9 @@ public partial class InitializeStep : AGameStep
 
 		level = enemyDatas.Length - 1;
 	}
+
+    public override void Reset()
+    {
+        level = 0;
+    }
 }

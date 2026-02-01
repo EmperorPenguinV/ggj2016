@@ -53,6 +53,10 @@ public partial class PlaceMaskStep : AGameStep
 		taskCompletionSource = null;
 	}
 
+	public override void Reset()
+    {
+    }
+
 	private void OnInventoryUpdated()
 	{
 		taskCompletionSource.SetResult();

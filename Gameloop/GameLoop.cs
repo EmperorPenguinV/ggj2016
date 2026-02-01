@@ -25,7 +25,10 @@ public partial class GameLoop : Node
 
 	public void EndGame()
 	{
-		
+		foreach(var step in steps.Values)
+		{
+			step.Reset();
+		}
 	}
 
 	internal void GoToStep(GameSteps nextStep)

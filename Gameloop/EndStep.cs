@@ -45,6 +45,11 @@ public partial class EndStep : AGameStep
 			if (playerDead)
 			{
 				GD.Print($"Player lost");
+
+				await Task.Delay(2000);
+
+				gameLoop.EndGame();
+
 				return;
 			}
 		}
@@ -66,6 +71,10 @@ public partial class EndStep : AGameStep
 
 		shop.Call("reset_shop");
 	}
+
+    public override void Reset()
+    {
+    }
 
 	private void FinishedShopping()
 	{
