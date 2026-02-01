@@ -38,6 +38,7 @@ public partial class Player : Entity
 			GD.Print($"{Name} hit for 0 damage because it was migigated by armor");
 			return;
 		}
+		GD.Print($"{Name} took {damage} damage!");
 
 		var reducedHealth = Mathf.Clamp(Health - damage, 0, MaxHealth);
 		SetHealth(reducedHealth);
