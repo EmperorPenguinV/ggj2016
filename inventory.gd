@@ -233,7 +233,7 @@ func preview_mask_placement():
 	var masked_items = []
 	for grid in mask_held.mask_grids:
 		var grid_to_check = current_slot.slot_ID + grid[0] + grid[1] * col_count
-		if grid_array[grid_to_check].States.TAKEN:
+		if grid_to_check < grid_array.size() and grid_array[grid_to_check].States.TAKEN:
 			if grid_array[grid_to_check].cooldown_timer and grid_array[grid_to_check].cooldown_timer.cooldown == 0:
 				if grid_array[grid_to_check].item_stored:
 					masked_items.append(grid_array[grid_to_check].item_stored)
