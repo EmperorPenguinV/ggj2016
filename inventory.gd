@@ -10,6 +10,7 @@ extends Control
 @export var cooldown_per_activation: int = 2
 
 signal mask_placed(damage : int, armor : int)
+signal mask_preview(damage: int, armor: int)
 signal item_placed()
 
 var grid_array: Array[Slot] = []
@@ -57,6 +58,7 @@ func _process(_delta):
 			if scroll_container.get_global_rect().has_point(get_global_mouse_position()):
 				place_item()
 	elif mask_held:
+		preview_mask_placement()
 		if Input.is_action_just_pressed("mouse_rightclick"):
 			rotate_mask()
 			
@@ -219,6 +221,30 @@ func place_mask():
 
 	clear_grid()
 	mask_placed.emit(damage, armor)
+
+
+func preview_mask_placement():
+	if not can_place or not current_slot: 
+		mask_preview.emit(0,0)
+		return #put sound here
+
+	mask_held.global_position = get_global_mouse_position()
+	
+	var masked_items = []
+	for grid in mask_held.mask_grids:
+		var grid_to_check = current_slot.slot_ID + grid[0] + grid[1] * col_count
+		if grid_array[grid_to_check].States.TAKEN:
+			if grid_array[grid_to_check].cooldown_timer and grid_array[grid_to_check].cooldown_timer.cooldown == 0:
+				if grid_array[grid_to_check].item_stored:
+					masked_items.append(grid_array[grid_to_check].item_stored)
+	
+	var damage = 0
+	var armor = 0
+	for masked_item in masked_items:
+		damage += masked_item.damage
+		armor += masked_item.armor
+
+	mask_preview.emit(damage, armor)
 
 func pick_item():
 	if not current_slot or not current_slot.item_stored: 
