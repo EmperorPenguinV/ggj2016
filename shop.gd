@@ -39,3 +39,7 @@ func _process(_delta: float) -> void:
 
 func _reset_item_position() -> void:
 	item_in_shop.global_position = texture_rect.global_position + Vector2(texture_rect.custom_minimum_size/2) 
+
+func reset_shop() -> void:
+	_ready()
+	item_bought = false
