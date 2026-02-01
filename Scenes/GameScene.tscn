@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tausu61jfqy8"]
 
-[ext_resource type="PackedScene" path="res://inventory.tscn" id="1_2wl7v"]
+[ext_resource type="PackedScene" uid="uid://0nqqxacxuayc" path="res://inventory.tscn" id="1_2wl7v"]
 [ext_resource type="Script" uid="uid://biyqoxg7idbfk" path="res://Scenes/Test.cs" id="1_y30xb"]
 [ext_resource type="Script" uid="uid://jlyxb30bem5u" path="res://Gameloop/GameLoop.cs" id="2_kilg5"]
 [ext_resource type="Script" uid="uid://bl0eqh1j7e8h" path="res://Gameloop/InitializeStep.cs" id="3_x6js8"]
@@ -9,13 +9,17 @@
 [ext_resource type="Script" uid="uid://cg2hd6jvxmmu8" path="res://Gameloop/EndStep.cs" id="6_xhjei"]
 [ext_resource type="PackedScene" uid="uid://b728gqyo7afnq" path="res://Entities/Enemies/enemy_prefab.tscn" id="8_y30xb"]
 [ext_resource type="PackedScene" uid="uid://b51tkcnke32fs" path="res://Entities/Player/player_prefab.tscn" id="9_xhjei"]
-[ext_resource type="Resource" path="res://Data/player_startingvalues.tres" id="10_xhjei"]
+[ext_resource type="PackedScene" uid="uid://8a4kxiteq4ws" path="res://Scenes/Shop.tscn" id="10_xhjei"]
 
 [node name="GameScene" type="Node2D" unique_id=1839778512 node_paths=PackedStringArray("gameLoop")]
 script = ExtResource("1_y30xb")
 gameLoop = NodePath("GameLoop")
 
 [node name="Inventory" parent="." unique_id=1887341990 instance=ExtResource("1_2wl7v")]
+offset_left = 73.0
+offset_top = 361.0
+offset_right = 73.0
+offset_bottom = 361.0
 
 [node name="GameLoop" type="Node" parent="." unique_id=960253668]
 script = ExtResource("2_kilg5")
@@ -42,4 +46,7 @@ enemy = NodePath("../../Enemy")
 [node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("8_y30xb")]
 
 [node name="Player" parent="." unique_id=1453012715 instance=ExtResource("9_xhjei")]
-Data = ExtResource("10_xhjei")
+
+[node name="Shop" parent="." unique_id=1299886706 node_paths=PackedStringArray("inventory") instance=ExtResource("10_xhjei")]
+position = Vector2(805, 314)
+inventory = NodePath("../Inventory")

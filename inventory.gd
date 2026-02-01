@@ -2,10 +2,10 @@ class_name Inventory
 extends Control
 
 @onready var slot_scene:PackedScene = preload("res://slot.tscn")
-@onready var grid_container: GridContainer = $Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer
+@onready var grid_container: GridContainer = $Background/ScrollContainer/GridContainer
 @onready var item_scene: PackedScene = preload("res://item.tscn")
 @onready var mask_scene:PackedScene = preload("res://mask.tscn")
-@onready var scroll_container: ScrollContainer = $Background/MarginContainer/VBoxContainer/ScrollContainer
+@onready var scroll_container: ScrollContainer = $Background/ScrollContainer
 @onready var col_count: int = grid_container.columns #save column number
 @export var cooldown_per_activation: int = 2
 
@@ -18,12 +18,34 @@ var mask_held: Mask = null
 var current_slot: Slot = null
 var can_place := false
 var icon_anchor: Vector2
+var item_placement_allowed := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i in range(14):
+	for i in range(25):
 		create_slot()
+		
+	var new_item = item_scene.instantiate()
+	grid_container.add_child(new_item)
+	new_item.load_item(2)
+	new_item.global_position = grid_array[0].global_position + Vector2(25, 50)
 	
+	for grid in new_item.item_grids:
+		var grid_to_check = 0 + grid[0] + grid[1] * col_count
+		grid_array[grid_to_check].state = grid_array[grid_to_check].States.TAKEN 
+		grid_array[grid_to_check].item_stored = new_item
+	new_item.grid_anchor = grid_array[0]
+	
+	new_item = item_scene.instantiate()
+	grid_container.add_child(new_item)
+	new_item.load_item(1)
+	new_item.global_position = grid_array[1].global_position + Vector2(100, 50)
+	
+	for grid in new_item.item_grids:
+		var grid_to_check = 1 + grid[0] + grid[1] * col_count
+		grid_array[grid_to_check].state = grid_array[grid_to_check].States.TAKEN 
+		grid_array[grid_to_check].item_stored = new_item
+	new_item.grid_anchor = grid_array[1]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -40,9 +62,8 @@ func _process(_delta):
 			
 		if Input.is_action_just_pressed("mouse_leftclick"):
 			if scroll_container.get_global_rect().has_point(get_global_mouse_position()):
-				reduce_cooldowns()
 				place_mask()
-	else:
+	elif item_placement_allowed:
 		if Input.is_action_just_pressed("mouse_leftclick"):
 			if scroll_container.get_global_rect().has_point(get_global_mouse_position()):
 				pick_item()
@@ -175,7 +196,7 @@ func place_item():
 func place_mask():
 	if not can_place or not current_slot: 
 		return #put sound here
-		
+	reduce_cooldowns()
 	mask_held.get_parent().remove_child(mask_held)
 	mask_held.global_position = get_global_mouse_position()
 	
@@ -227,7 +248,7 @@ func _on_add_slot_pressed():
 func _on_get_mask() -> void:
 	var new_mask = mask_scene.instantiate()
 	add_child(new_mask)
-	new_mask.load_mask(randi_range(1,7))    #randomize this for different items to spawn
+	new_mask.load_mask(randi_range(1,5))    #randomize this for different items to spawn
 	new_mask.selected = true
 	mask_held = new_mask
 	pass # Replace with function body.

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da34kgfqqqifa"
-path="res://.godot/imported/Mask7.png-85fb2499d6ce4138612245fc7af9edaf.ctex"
+uid="uid://c6g4msc6f4j4y"
+path="res://.godot/imported/T_Wurfel-Maske01.png-a735f58225d7c799fd98c0132a52e237.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mask7.png"
-dest_files=["res://.godot/imported/Mask7.png-85fb2499d6ce4138612245fc7af9edaf.ctex"]
+source_file="res://Assets/T_Wurfel-Maske01.png"
+dest_files=["res://.godot/imported/T_Wurfel-Maske01.png-a735f58225d7c799fd98c0132a52e237.ctex"]
 
 [params]
 

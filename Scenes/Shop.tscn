@@ -1,19 +1,14 @@
 [gd_scene format=3 uid="uid://8a4kxiteq4ws"]
 
 [ext_resource type="Script" uid="uid://br4sjk7g7rcjh" path="res://shop.gd" id="1_iidq5"]
-[ext_resource type="PackedScene" uid="uid://0nqqxacxuayc" path="res://inventory.tscn" id="1_kjfcx"]
 
 [node name="Shop" type="Node2D" unique_id=1299886706]
 script = ExtResource("1_iidq5")
 
-[node name="Shop" type="Control" parent="." unique_id=1522958385]
+[node name="Shop" type="ColorRect" parent="." unique_id=293822023]
 custom_minimum_size = Vector2(300, 300)
-layout_mode = 3
-anchors_preset = 0
-offset_left = 644.0
-offset_top = 248.0
-offset_right = 944.0
-offset_bottom = 548.0
+offset_right = 300.0
+offset_bottom = 300.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
@@ -40,14 +35,3 @@ vertical_alignment = 1
 [node name="TextureRect" type="TextureRect" parent="Shop/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1015571389]
 custom_minimum_size = Vector2(400, 75)
 layout_mode = 2
-
-[node name="Inventory" parent="." unique_id=1887341990 instance=ExtResource("1_kjfcx")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -126.0
-offset_top = 64.0
-offset_right = 46.0
-offset_bottom = 237.0
-grow_horizontal = 1
-grow_vertical = 1

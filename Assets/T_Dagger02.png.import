@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clxw8pjuk008b"
-path="res://.godot/imported/Mask4.png-8b0ab72cba8036e702900a3960134a12.ctex"
+uid="uid://cuy6om6x3t0bc"
+path="res://.godot/imported/T_Dagger02.png-cf8508298be11ea4b33cbdfa5d7716ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mask4.png"
-dest_files=["res://.godot/imported/Mask4.png-8b0ab72cba8036e702900a3960134a12.ctex"]
+source_file="res://Assets/T_Dagger02.png"
+dest_files=["res://.godot/imported/T_Dagger02.png-cf8508298be11ea4b33cbdfa5d7716ee.ctex"]
 
 [params]
 

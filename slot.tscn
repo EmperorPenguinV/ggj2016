@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bwwf7txdqilrc"]
 
-[ext_resource type="Texture2D" uid="uid://dd3ppdnkci0bj" path="res://Assets/inventory_texture.png" id="1_cv2pd"]
+[ext_resource type="Texture2D" uid="uid://dcben62pym6ii" path="res://Assets/inventory_texture2.png" id="1_hiqfk"]
 [ext_resource type="Script" uid="uid://bbjquki8q2j8t" path="res://slot.gd" id="2_g5ktd"]
 [ext_resource type="PackedScene" uid="uid://cstc5egjh3n2s" path="res://cooldown_timer.tscn" id="3_hiqfk"]
 
@@ -8,7 +8,7 @@
 custom_minimum_size = Vector2(50, 50)
 offset_right = 50.0
 offset_bottom = 50.0
-texture = ExtResource("1_cv2pd")
+texture = ExtResource("1_hiqfk")
 expand_mode = 1
 script = ExtResource("2_g5ktd")
 
@@ -24,4 +24,6 @@ color = Color(1, 0, 0, 0)
 [node name="CooldownTimer" parent="." unique_id=832690058 instance=ExtResource("3_hiqfk")]
 z_index = 200
 layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
 color = Color(0.21568628, 0.21568628, 0.21568628, 0.7490196)

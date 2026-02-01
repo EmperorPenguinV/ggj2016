@@ -20,7 +20,8 @@ public partial class InitializeStep : AGameStep
 
 		itemUpdate = Callable.From(OnItemPlaced);
 		inventoryGd.Connect("item_placed", itemUpdate);
-
+		/* 
+		// Since we have a starting inventory now, we dont need this. Can this be deleted?
 		while (itemsPlaced < 1)
 		{
 			taskCompletionSource = new TaskCompletionSource();
@@ -28,13 +29,13 @@ public partial class InitializeStep : AGameStep
 			PlaceItem();
 			await taskCompletionSource.Task;
 			itemsPlaced++;
-		}
+		}*/
 
 		//Go to Place mask
 		gameLoop.GoToStep(GameSteps.Place);
 	}
 
-    public override void Exit()
+	public override void Exit()
 	{
 		inventoryGd.Disconnect("item_placed", itemUpdate);
 	}

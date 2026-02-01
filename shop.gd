@@ -1,7 +1,7 @@
 class_name Shop
 extends Node2D
 
-@onready var inventory: Inventory = $Inventory
+@export var inventory: Inventory
 @onready var texture_rect: TextureRect = $Shop/MarginContainer/VBoxContainer/HBoxContainer/TextureRect
 @onready var item_scene: PackedScene = preload("res://item.tscn")
 var item_in_shop: Item = null

@@ -1,18 +1,18 @@
 {
   "1": {
-	"Name": "T_RiotShield01",
+	"Name": "T_RiotShield02",
 	"Damage": 0,
 	"Armor": 1,
 	"Grid": "0,0/0,1/1,0/1,1"
   },
   "2": {
-	"Name": "T_Dagger01",
+	"Name": "T_Dagger02",
 	"Damage": 1,
 	"Armor": 0,
 	"Grid": "0,0/0,1"
   },
   "3": {
-	"Name": "T_Katana01",
+	"Name": "T_Katana02",
 	"Damage": 3,
 	"Armor": 0,
 	"Grid": "0,0/1,0/2,0/-1,0/-2,0"

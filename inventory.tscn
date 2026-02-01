@@ -13,60 +13,20 @@ script = ExtResource("1_jolrh")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1936723626]
 layout_mode = 0
-offset_left = 129.0
-offset_top = 62.0
-offset_right = 549.0
-offset_bottom = 582.0
+offset_right = 250.0
+offset_bottom = 250.0
 color = Color(0.14902, 0.0823529, 0.0823529, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="Background" unique_id=1393815763]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer" unique_id=675816980]
-layout_mode = 2
-
-[node name="Header" type="HBoxContainer" parent="Background/MarginContainer/VBoxContainer" unique_id=1483893110]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="Button_Spawn" type="Button" parent="Background/MarginContainer/VBoxContainer/Header" unique_id=1680525171]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 20
-text = "Spawn Item"
-
-[node name="Add_slot" type="Button" parent="Background/MarginContainer/VBoxContainer/Header" unique_id=1189490757]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-text = "Add Slot"
-
-[node name="Get_Mask" type="Button" parent="Background/MarginContainer/VBoxContainer/Header" unique_id=136102334]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-text = "Get Mask"
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Background/MarginContainer/VBoxContainer" unique_id=724675535]
-custom_minimum_size = Vector2(0, 420)
-layout_mode = 2
+[node name="ScrollContainer" type="ScrollContainer" parent="Background" unique_id=724675535]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 0
+offset_left = -1.0
+offset_right = 419.0
+offset_bottom = 520.0
 size_flags_vertical = 3
 
-[node name="GridContainer" type="GridContainer" parent="Background/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2023493755]
+[node name="GridContainer" type="GridContainer" parent="Background/ScrollContainer" unique_id=2023493755]
 layout_mode = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
-columns = 8
-
-[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/Header/Button_Spawn" to="." method="_on_button_spawn_pressed"]
-[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/Header/Add_slot" to="." method="_on_add_slot_pressed"]
-[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/Header/Get_Mask" to="." method="_on_get_mask_pressed"]
+columns = 5

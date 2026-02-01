@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvj2034qkv2b8"
-path="res://.godot/imported/Mask1.png-aa358ef1a7d95461e55fef539d454f29.ctex"
+uid="uid://chorxggt0mnnb"
+path="res://.godot/imported/T_RiotShield02.png-aa79a7e179c02d841ab0cbb39d949d93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mask1.png"
-dest_files=["res://.godot/imported/Mask1.png-aa358ef1a7d95461e55fef539d454f29.ctex"]
+source_file="res://Assets/T_RiotShield02.png"
+dest_files=["res://.godot/imported/T_RiotShield02.png-aa79a7e179c02d841ab0cbb39d949d93.ctex"]
 
 [params]
 
