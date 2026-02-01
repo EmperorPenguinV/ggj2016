@@ -115,8 +115,6 @@ texture = ExtResource("2_f43ej")
 [sub_resource type="TileSet" id="TileSet_124qp"]
 sources/0 = SubResource("TileSetAtlasSource_7rq2r")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_7rq2r"]
-
 [node name="GameScene" type="Node2D" unique_id=1839778512 node_paths=PackedStringArray("gameLoop")]
 script = ExtResource("1_y30xb")
 gameLoop = NodePath("GameLoop")
@@ -174,7 +172,7 @@ position = Vector2(64, 64)
 
 [node name="Shop" parent="." unique_id=1299886706 node_paths=PackedStringArray("inventory") instance=ExtResource("10_xhjei")]
 visible = false
-position = Vector2(805, 314)
+position = Vector2(705, 414)
 inventory = NodePath("../Inventory")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=13620163]
@@ -182,25 +180,6 @@ stream = ExtResource("14_7rq2r")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
-
-[node name="Background1" type="TextureRect" parent="." unique_id=1132719715]
-visible = false
-modulate = Color(0.31804693, 0.31804693, 0.31804693, 1)
-z_index = -100
-offset_right = 1153.0
-offset_bottom = 301.0
-texture = SubResource("CanvasTexture_7rq2r")
-
-[node name="Background2" type="TextureRect" parent="." unique_id=1491248074]
-visible = false
-modulate = Color(0.6955031, 0.6955032, 0.6955029, 1)
-self_modulate = Color(0.62152386, 0.62152386, 0.6215238, 1)
-z_index = -100
-offset_left = 1.0
-offset_top = 299.0
-offset_right = 1158.0
-offset_bottom = 664.0
-texture = SubResource("CanvasTexture_7rq2r")
 
 [node name="Dusk00070" type="Sprite2D" parent="." unique_id=846715457]
 z_index = -1
