@@ -131,10 +131,11 @@ script = ExtResource("2_kilg5")
 [node name="Initialize" type="Node" parent="GameLoop" unique_id=1088468562]
 script = ExtResource("3_x6js8")
 
-[node name="Place" type="Node" parent="GameLoop" unique_id=1365925195 node_paths=PackedStringArray("inventoryGd", "player")]
+[node name="Place" type="Node" parent="GameLoop" unique_id=1365925195 node_paths=PackedStringArray("inventoryGd", "player", "enemy")]
 script = ExtResource("4_lg2j6")
 inventoryGd = NodePath("../../Inventory")
 player = NodePath("../../Player")
+enemy = NodePath("../../Enemy")
 
 [node name="Damage" type="Node" parent="GameLoop" unique_id=896875935 node_paths=PackedStringArray("player", "enemy")]
 script = ExtResource("5_y30xb")
@@ -156,6 +157,7 @@ texture = ExtResource("9_6vvcf")
 
 [node name="HitEffect" parent="Enemy" unique_id=1795497995 instance=ExtResource("10_cr6v8")]
 position = Vector2(-180, 168)
+scale = Vector2(4, 4)
 
 [node name="Player" parent="." unique_id=1453012715 instance=ExtResource("9_xhjei")]
 position = Vector2(64, 64)

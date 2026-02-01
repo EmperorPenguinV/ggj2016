@@ -10,20 +10,25 @@ public partial class Player : Entity
 
 	private Callable inventoryUpdate;
 
+	private Callable inventoryPreview;
+
 	public override void _Ready()
 	{
 		base._Ready();
 		inventoryUpdate = Callable.From((int damage, int armor) => OnInventoryUpdated(damage, armor));
+		inventoryPreview = Callable.From((int damage, int armor) => OnInventoryPreview(damage, armor));
 	}
 
 	public void ConnectInventory(Node inventoryGd)
 	{
 		inventoryGd.Connect("mask_placed", inventoryUpdate);
+		inventoryGd.Connect("mask_preview", inventoryPreview);
 	}
 
 	public void DisconnectInventory(Node inventoryGd)
 	{
 		inventoryGd.Disconnect("mask_placed", inventoryUpdate);
+		inventoryGd.Disconnect("mask_preview", inventoryPreview);
 	}
 
 	public override void TakeDamage(AttackData attack)
@@ -47,5 +52,10 @@ public partial class Player : Entity
 	{
 		currentArmor = armor;
 		currentDamage = damage;
+	}
+
+	private void OnInventoryPreview(int damage, int armor)
+	{
+		damagePreview.Text = $"{damage} Damage | {armor} Armor";
 	}
 }

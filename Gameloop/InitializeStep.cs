@@ -17,11 +17,15 @@ public partial class InitializeStep : AGameStep
 	public override void Enter(GameLoop gameLoop)
 	{
 		//Set UI and other classes to initial state
+		if (level == 0)
+		{
+			player.Initialize();
+		}
+
 		enemy.SetData(enemyDatas[level]);
 		level++;
 
 		enemy.Initialize();
-		player.Initialize();
 
 		//Go to Place mask
 		gameLoop.GoToStep(GameSteps.Place);
@@ -36,4 +40,9 @@ public partial class InitializeStep : AGameStep
 
 		level = enemyDatas.Length - 1;
 	}
+
+    public override void Reset()
+    {
+        level = 0;
+    }
 }

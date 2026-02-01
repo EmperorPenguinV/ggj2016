@@ -45,4 +45,8 @@ public partial class DamageStep : AGameStep
     public override void Exit()
     {
     }
+
+	public override void Reset()
+    {
+    }
 }

@@ -14,7 +14,7 @@ signal shopping_finished()
 func _ready() -> void:
 	var new_item = item_scene.instantiate()
 	texture_rect.add_child(new_item)
-	new_item.load_item(randi_range(1,3))
+	new_item.load_item(randi_range(1,4))
 	new_item.global_position = texture_rect.global_position + Vector2(texture_rect.custom_minimum_size/2) 
 	item_in_shop = new_item
 	new_item.IconRect_path.z_index = 3
@@ -46,6 +46,8 @@ func reset_shop() -> void:
 
 
 func _on_button_pressed() -> void:
+	if not item_bought:
+		item_in_shop.queue_free()
 	item_bought = true
 	item_in_shop = null
 	item_held = false

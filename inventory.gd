@@ -100,7 +100,7 @@ func _on_slot_mouse_exited(_a_Slot):
 func _on_button_spawn_pressed():
 	var new_item = item_scene.instantiate()
 	add_child(new_item)
-	new_item.load_item(randi_range(1,3))    #randomize this for different items to spawn
+	new_item.load_item(randi_range(1,4))    #randomize this for different items to spawn
 	new_item.selected = true
 	item_held = new_item
 	
@@ -205,8 +205,8 @@ func place_mask():
 	var masked_items = []
 	for grid in mask_held.mask_grids:
 		var grid_to_check = current_slot.slot_ID + grid[0] + grid[1] * col_count
-		if grid_array[grid_to_check].States.TAKEN:
-			if grid_array[grid_to_check].cooldown_timer.cooldown == 0:
+		if grid_to_check < grid_array.size() and grid_array[grid_to_check].States.TAKEN:
+			if grid_array[grid_to_check].cooldown_timer and grid_array[grid_to_check].cooldown_timer.cooldown == 0:
 				if grid_array[grid_to_check].item_stored:
 					masked_items.append(grid_array[grid_to_check].item_stored)
 			grid_array[grid_to_check].cooldown_timer.cooldown += cooldown_per_activation
@@ -233,7 +233,7 @@ func preview_mask_placement():
 	var masked_items = []
 	for grid in mask_held.mask_grids:
 		var grid_to_check = current_slot.slot_ID + grid[0] + grid[1] * col_count
-		if grid_array[grid_to_check].States.TAKEN:
+		if grid_to_check < grid_array.size() and grid_array[grid_to_check].States.TAKEN:
 			if grid_array[grid_to_check].cooldown_timer and grid_array[grid_to_check].cooldown_timer.cooldown == 0:
 				if grid_array[grid_to_check].item_stored:
 					masked_items.append(grid_array[grid_to_check].item_stored)

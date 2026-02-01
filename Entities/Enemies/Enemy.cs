@@ -20,17 +20,11 @@ public partial class Enemy : Entity
 		Data = enemyData;
 	}
 
-	public override AttackData DealDamage()
+	public void RollDamage()
 	{
-		int damage = RollDamage(EnemyData.BaseDamage);
-		GD.Print($"{Name} rolls a {damage} for damage");
-		currentDamage = damage;
+		currentDamage = rng.RandiRange(1, EnemyData.BaseDamage);
+		damagePreview.Text = $"{currentDamage} Damage";
 
-		return base.DealDamage();
-	}
-
-	public int RollDamage(int max, int min = 1)
-	{
-		return rng.RandiRange(min, max);
+		GD.Print($"{Name} rolls a {currentDamage} for damage");
 	}
 }

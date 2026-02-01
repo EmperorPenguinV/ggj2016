@@ -7,6 +7,8 @@ public partial class PlaceMaskStep : AGameStep
 
 	[Export] private Player player;
 
+	[Export] private Enemy enemy;
+
 	private TaskCompletionSource taskCompletionSource;
 
 	private MaskLogic maskLogic;
@@ -33,6 +35,8 @@ public partial class PlaceMaskStep : AGameStep
 			//Snap next mask to mouse
 			maskLogic.InstantiateMask();
 
+			enemy.RollDamage();
+
 			//Move up mask preview
 			//Await mask placement and tell gameloop to go to damagestep
 			await taskCompletionSource.Task;
@@ -52,6 +56,10 @@ public partial class PlaceMaskStep : AGameStep
 		
 		taskCompletionSource = null;
 	}
+
+	public override void Reset()
+    {
+    }
 
 	private void OnInventoryUpdated()
 	{

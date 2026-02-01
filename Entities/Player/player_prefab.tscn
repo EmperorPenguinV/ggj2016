@@ -6,11 +6,12 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07lmg"]
 
-[node name="Player" type="Node2D" unique_id=1453012715 node_paths=PackedStringArray("healthBar", "nameTag")]
+[node name="Player" type="Node2D" unique_id=1453012715 node_paths=PackedStringArray("healthBar", "nameTag", "damagePreview")]
 script = ExtResource("1_wj3ea")
 Data = ExtResource("2_id7cp")
 healthBar = NodePath("Panel/PlayerHealthBar")
-nameTag = NodePath("Panel/RichTextLabel")
+nameTag = NodePath("Panel/Name")
+damagePreview = NodePath("Panel/Damage")
 
 [node name="Panel" type="Panel" parent="." unique_id=1695854467]
 offset_right = 248.0
@@ -24,7 +25,7 @@ offset_top = 4.0
 offset_right = 244.0
 offset_bottom = 24.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1312438450]
+[node name="Name" type="RichTextLabel" parent="Panel" unique_id=1312438450]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -36,3 +37,11 @@ offset_right = -4.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Player"
+
+[node name="Damage" type="RichTextLabel" parent="Panel" unique_id=706029240]
+layout_mode = 1
+offset_left = 256.0
+offset_top = 4.0
+offset_right = 536.0
+offset_bottom = 36.0
+text = "1 | 0"

@@ -8,4 +8,6 @@ public abstract partial class AGameStep : Node
 	public abstract void Enter(GameLoop gameLoop);
 
 	public abstract void Exit();
+
+	public abstract void Reset();
 }

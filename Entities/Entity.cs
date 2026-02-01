@@ -3,9 +3,12 @@ using Godot;
 public partial class Entity : Node, IDamageable
 {
 	[Export] protected EntityData Data;
+	
 	[Export] protected HealthBar healthBar;
 
 	[Export] protected RichTextLabel nameTag;
+
+	[Export] protected RichTextLabel damagePreview;
 
 	[Export] protected int currentHealth;
 
