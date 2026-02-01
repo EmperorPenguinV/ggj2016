@@ -100,7 +100,7 @@ func _on_slot_mouse_exited(_a_Slot):
 func _on_button_spawn_pressed():
 	var new_item = item_scene.instantiate()
 	add_child(new_item)
-	new_item.load_item(randi_range(1,3))    #randomize this for different items to spawn
+	new_item.load_item(randi_range(1,4))    #randomize this for different items to spawn
 	new_item.selected = true
 	item_held = new_item
 	
