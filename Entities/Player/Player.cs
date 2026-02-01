@@ -13,7 +13,6 @@ public partial class Player : Entity
 	public override void _Ready()
 	{
 		base._Ready();
-		GD.Print($"{Name} spawned | HP={Health}");
 		inventoryUpdate = Callable.From((int damage, int armor) => OnInventoryUpdated(damage, armor));
 	}
 

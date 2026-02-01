@@ -7,11 +7,16 @@
 [ext_resource type="Script" uid="uid://bl0eqh1j7e8h" path="res://Gameloop/InitializeStep.cs" id="3_x6js8"]
 [ext_resource type="Script" uid="uid://bhb3tl3nku1sj" path="res://Gameloop/PlaceMaskStep.cs" id="4_lg2j6"]
 [ext_resource type="Script" uid="uid://7bf6hxx24pbe" path="res://Gameloop/DamageStep.cs" id="5_y30xb"]
+[ext_resource type="Resource" uid="uid://bktm3285nbsbq" path="res://Data/EnemyData/enemy_lv1.tres" id="6_gipt1"]
 [ext_resource type="Script" uid="uid://cg2hd6jvxmmu8" path="res://Gameloop/EndStep.cs" id="6_xhjei"]
+[ext_resource type="Resource" uid="uid://c1u6jj32fhx0h" path="res://Data/EnemyData/enemy_lv2.tres" id="7_pgw7i"]
+[ext_resource type="Resource" uid="uid://cfrm6aab6i4to" path="res://Data/EnemyData/enemy_lv3.tres" id="8_v7xhk"]
 [ext_resource type="PackedScene" uid="uid://b728gqyo7afnq" path="res://Entities/Enemies/enemy_prefab.tscn" id="8_y30xb"]
 [ext_resource type="Texture2D" uid="uid://cl7puq8xhae7j" path="res://Assets/T_Spinne01.png" id="9_6vvcf"]
+[ext_resource type="Resource" uid="uid://dfdlqjob545e5" path="res://Data/EnemyData/enemy_lv4.tres" id="9_wukv0"]
 [ext_resource type="PackedScene" uid="uid://b51tkcnke32fs" path="res://Entities/Player/player_prefab.tscn" id="9_xhjei"]
 [ext_resource type="PackedScene" uid="uid://mex8po8bv8r2" path="res://hit_effect.tscn" id="10_cr6v8"]
+[ext_resource type="Resource" uid="uid://b3alucrp8unvg" path="res://Data/EnemyData/enemy_lv5.tres" id="10_hgvmy"]
 [ext_resource type="PackedScene" uid="uid://8a4kxiteq4ws" path="res://Scenes/Shop.tscn" id="10_xhjei"]
 [ext_resource type="AudioStream" uid="uid://dixse2blqqsdt" path="res://Assets/DavidKBD - Pink Bloom Pack - 01 - Pink Bloom.ogg" id="14_7rq2r"]
 
@@ -129,9 +134,12 @@ offset_bottom = 391.0
 [node name="GameLoop" type="Node" parent="." unique_id=960253668]
 script = ExtResource("2_kilg5")
 
-[node name="Initialize" type="Node" parent="GameLoop" unique_id=1088468562 node_paths=PackedStringArray("inventoryGd")]
+[node name="Initialize" type="Node" parent="GameLoop" unique_id=1088468562 node_paths=PackedStringArray("inventoryGd", "enemy", "player")]
 script = ExtResource("3_x6js8")
 inventoryGd = NodePath("../../Inventory")
+enemy = NodePath("../../Enemy")
+player = NodePath("../../Player")
+enemyDatas = Array[Object]([ExtResource("6_gipt1"), ExtResource("7_pgw7i"), ExtResource("8_v7xhk"), ExtResource("9_wukv0"), ExtResource("10_hgvmy")])
 
 [node name="Place" type="Node" parent="GameLoop" unique_id=1365925195 node_paths=PackedStringArray("inventoryGd", "player")]
 script = ExtResource("4_lg2j6")
@@ -150,6 +158,7 @@ enemy = NodePath("../../Enemy")
 
 [node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("8_y30xb")]
 position = Vector2(1087, 64)
+Data = null
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=1202592343]
 position = Vector2(-217, 251)

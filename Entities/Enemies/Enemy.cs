@@ -15,6 +15,11 @@ public partial class Enemy : Entity
 		rng.Randomize();
 	}
 
+	public void SetData(EnemyData enemyData)
+	{
+		Data = enemyData;
+	}
+
 	public override AttackData DealDamage()
 	{
 		int damage = RollDamage(EnemyData.BaseDamage);

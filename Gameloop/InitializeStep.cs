@@ -1,35 +1,27 @@
 using Godot;
-using System;
-using System.Threading.Tasks;
 
 public partial class InitializeStep : AGameStep
 {
 	[Export] private Node inventoryGd;
 
-	private int itemsPlaced;
+	[Export] private Enemy enemy;
 
-	private TaskCompletionSource taskCompletionSource;
+	[Export] private Player player;
 
-	private Callable itemUpdate;
+	[Export] private EnemyData[] enemyDatas;
+
+	private int level;
 
 	public override GameSteps Identifier => GameSteps.Initialize;
 
-	public async override void Enter(GameLoop gameLoop)
+	public override void Enter(GameLoop gameLoop)
 	{
 		//Set UI and other classes to initial state
+		enemy.SetData(enemyDatas[level]);
+		level++;
 
-		itemUpdate = Callable.From(OnItemPlaced);
-		inventoryGd.Connect("item_placed", itemUpdate);
-		/* 
-		// Since we have a starting inventory now, we dont need this. Can this be deleted?
-		while (itemsPlaced < 1)
-		{
-			taskCompletionSource = new TaskCompletionSource();
-
-			PlaceItem();
-			await taskCompletionSource.Task;
-			itemsPlaced++;
-		}*/
+		enemy.Initialize();
+		player.Initialize();
 
 		//Go to Place mask
 		gameLoop.GoToStep(GameSteps.Place);
@@ -37,16 +29,11 @@ public partial class InitializeStep : AGameStep
 
 	public override void Exit()
 	{
-		inventoryGd.Disconnect("item_placed", itemUpdate);
-	}
+		if (level < enemyDatas.Length)
+		{
+			return;
+		}
 
-	private void PlaceItem()
-	{
-		inventoryGd.Call("_on_button_spawn_pressed");
-	}
-
-	private void OnItemPlaced()
-	{
-		taskCompletionSource.SetResult();
+		level = enemyDatas.Length - 1;
 	}
 }
