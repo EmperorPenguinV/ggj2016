@@ -1,35 +1,56 @@
+using System.Threading.Tasks;
 using Godot;
 
 public partial class EndStep : AGameStep
 {
+	[Export] private CanvasItem shop;
+
 	[Export] private Player player;
 
 	[Export] private Enemy enemy;
 
+	private Callable shopFinished;
+
+	private TaskCompletionSource taskCompletionSource;
+
 	public override GameSteps Identifier => GameSteps.End;
 
-    public override void Enter(GameLoop gameLoop)
+    public override void _Ready()
 	{
-		//Check Health
-		var playerDead = player.IsDead();
-		var enemyDead = enemy.IsDead();
+		shopFinished = Callable.From(FinishedShopping);
+	}
 
-		if (playerDead && enemyDead)
+    public async override void Enter(GameLoop gameLoop)
+	{
+		try
 		{
-			GD.Print($"Draw");
-			return;
-		}
+			taskCompletionSource = new TaskCompletionSource();
 
-		if (playerDead)
-		{
-			GD.Print($"Player lost");
-			return;
+			//Check Health
+			var playerDead = player.IsDead();
+			var enemyDead = enemy.IsDead();
+
+			if(enemyDead)
+			{
+				shop.Connect("shopping_finished", shopFinished);
+				shop.Visible = true;
+
+				await taskCompletionSource.Task;
+
+				gameLoop.GoToStep(GameSteps.Initialize);
+
+				return;
+			}
+
+			if (playerDead)
+			{
+				GD.Print($"Player lost");
+				return;
+			}
 		}
-		
-		if(enemyDead)
+		catch (System.Exception e)
 		{
-			GD.Print($"Player won");
-			return;
+			GD.Print(e.Message);
 		}
 
 		//if player has no more health -> you lost
@@ -39,6 +60,13 @@ public partial class EndStep : AGameStep
 	}
 
     public override void Exit()
-    {
-    }
+	{
+		shop.Visible = false;
+		shop.Disconnect("shopping_finished", shopFinished);
+	}
+
+	private void FinishedShopping()
+	{
+		taskCompletionSource.SetResult();
+	}
 }

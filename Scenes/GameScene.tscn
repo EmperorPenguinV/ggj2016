@@ -151,8 +151,9 @@ script = ExtResource("5_y30xb")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 
-[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("player", "enemy")]
+[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("shop", "player", "enemy")]
 script = ExtResource("6_xhjei")
+shop = NodePath("../../Shop")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 
