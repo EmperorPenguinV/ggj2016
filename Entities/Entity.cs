@@ -4,9 +4,9 @@ using System;
 public partial class Entity : Node, IDamageable
 {
 	[Export] protected EntityData Data;
-
-	[Export] int currentHealth;
 	[Export] protected HealthBar healthBar;
+
+	[Export] protected int currentHealth;
 
 	[Signal] public delegate void HealthChangedEventHandler(int health);
 
