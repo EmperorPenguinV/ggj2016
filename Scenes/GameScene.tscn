@@ -151,15 +151,17 @@ script = ExtResource("5_y30xb")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 
-[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("shop", "player", "enemy", "endPanel", "reset", "enterName", "close")]
+[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("shop", "player", "enemy", "endPanel", "endPanelText", "reset", "enterName", "close", "initializeStep")]
 script = ExtResource("6_xhjei")
 shop = NodePath("../../Shop")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 endPanel = NodePath("../../EndPanel")
+endPanelText = NodePath("../../EndPanel/RichTextLabel")
 reset = NodePath("../../EndPanel/VBoxContainer/Restart")
 enterName = NodePath("../../EndPanel/VBoxContainer/Enter Name")
 close = NodePath("../../EndPanel/VBoxContainer/Close")
+initializeStep = NodePath("../Initialize")
 
 [node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("8_y30xb")]
 position = Vector2(1087, 64)
@@ -228,3 +230,24 @@ text = "Enter Name"
 [node name="Close" type="Button" parent="EndPanel/VBoxContainer" unique_id=215505030]
 layout_mode = 2
 text = "Close"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndPanel" unique_id=1374663861]
+clip_contents = false
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -187.0
+offset_right = 251.0
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "You died
+Spiders Vanquished:"
+autowrap_mode = 0
+horizontal_alignment = 1

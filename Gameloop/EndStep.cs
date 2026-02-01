@@ -11,11 +11,15 @@ public partial class EndStep : AGameStep
 
 	[Export] private CanvasItem endPanel;
 
+	[Export] private RichTextLabel endPanelText;
+
 	[Export] private Button reset;
 
 	[Export] private Button enterName;
 
 	[Export] private Button close;
+
+	[Export] private InitializeStep initializeStep;
 
 	private Callable shopFinished;
 
@@ -65,6 +69,7 @@ public partial class EndStep : AGameStep
 
 				await Task.Delay(1000);
 
+				endPanelText.Text = $"You died! \n Spiders vanquished: {initializeStep.Level - 1}";
 				endPanel.Visible = true;
 
 				return;
@@ -92,7 +97,7 @@ public partial class EndStep : AGameStep
     public override void Reset()
 	{
 		endPanel.Visible = false;
-		Exit();
+		shop.Call("reset_shop");
 	}
 
 	private void FinishedShopping()

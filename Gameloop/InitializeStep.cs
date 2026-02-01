@@ -10,20 +10,20 @@ public partial class InitializeStep : AGameStep
 
 	[Export] private EnemyData[] enemyDatas;
 
-	private int level;
+	public int Level {get; private set;}
 
 	public override GameSteps Identifier => GameSteps.Initialize;
 
 	public override void Enter(GameLoop gameLoop)
 	{
 		//Set UI and other classes to initial state
-		if (level == 0)
+		if (Level == 0)
 		{
 			player.Initialize();
 		}
 
-		enemy.SetData(enemyDatas[level]);
-		level++;
+		enemy.SetData(enemyDatas[Level]);
+		Level++;
 
 		enemy.Initialize();
 
@@ -33,16 +33,16 @@ public partial class InitializeStep : AGameStep
 
 	public override void Exit()
 	{
-		if (level < enemyDatas.Length)
+		if (Level < enemyDatas.Length)
 		{
 			return;
 		}
 
-		level = enemyDatas.Length - 1;
+		Level = enemyDatas.Length - 1;
 	}
 
     public override void Reset()
     {
-        level = 0;
+        Level = 0;
     }
 }
