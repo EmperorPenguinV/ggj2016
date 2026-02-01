@@ -152,17 +152,15 @@ script = ExtResource("5_y30xb")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 
-[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("shop", "player", "enemy", "endPanel", "endPanelText", "reset", "enterName", "close", "initializeStep")]
+[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("shop", "player", "enemy", "endPanel", "reset", "enterName", "close")]
 script = ExtResource("6_xhjei")
 shop = NodePath("../../Shop")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 endPanel = NodePath("../../EndPanel")
-endPanelText = NodePath("../../EndPanel/RichTextLabel")
 reset = NodePath("../../EndPanel/VBoxContainer/Restart")
 enterName = NodePath("../../EndPanel/VBoxContainer/Enter Name")
 close = NodePath("../../EndPanel/VBoxContainer/Close")
-initializeStep = NodePath("../Initialize")
 
 [node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("8_y30xb")]
 position = Vector2(1087, 64)
@@ -196,7 +194,7 @@ parameters/looping = true
 
 [node name="Dusk00070" type="Sprite2D" parent="." unique_id=846715457]
 z_index = -1
-position = Vector2(573.99994, 335)
+position = Vector2(575.99994, 324)
 texture = ExtResource("20_pgw7i")
 
 [node name="EndPanel" type="Control" parent="." unique_id=1145744652]
