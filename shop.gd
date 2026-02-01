@@ -8,6 +8,8 @@ var item_in_shop: Item = null
 var item_held := false
 var item_bought := false
 
+signal shopping_finished()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var new_item = item_scene.instantiate()
@@ -23,6 +25,7 @@ func _process(_delta: float) -> void:
 		return
 	if !item_held and item_in_shop.global_position != texture_rect.global_position + Vector2(texture_rect.custom_minimum_size/2) :
 		item_bought = true
+		shopping_finished.emit()
 		return
 	if Input.is_action_just_pressed("mouse_leftclick"):
 		if item_held:
