@@ -63,6 +63,8 @@ public partial class EndStep : AGameStep
 	{
 		shop.Visible = false;
 		shop.Disconnect("shopping_finished", shopFinished);
+
+		shop.Call("reset_shop");
 	}
 
 	private void FinishedShopping()
