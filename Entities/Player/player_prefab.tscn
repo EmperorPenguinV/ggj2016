@@ -4,9 +4,34 @@
 [ext_resource type="Resource" uid="uid://dwjvof5oh0w77" path="res://Data/player_startingvalues.tres" id="2_id7cp"]
 [ext_resource type="PackedScene" uid="uid://db1ivros213jc" path="res://CombatSystem/HealthBar/health_bar_player_prefab.tscn" id="3_07lmg"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07lmg"]
+
 [node name="Player" type="Node2D" unique_id=1453012715 node_paths=PackedStringArray("healthBar")]
 script = ExtResource("1_wj3ea")
 Data = ExtResource("2_id7cp")
-healthBar = NodePath("PlayerHealthBar")
+healthBar = NodePath("Panel/PlayerHealthBar")
 
-[node name="PlayerHealthBar" parent="." unique_id=968013164 instance=ExtResource("3_07lmg")]
+[node name="Panel" type="Panel" parent="." unique_id=1695854467]
+offset_right = 248.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_07lmg")
+
+[node name="PlayerHealthBar" parent="Panel" unique_id=968013164 instance=ExtResource("3_07lmg")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 244.0
+offset_bottom = 24.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1312438450]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -32.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Player"
