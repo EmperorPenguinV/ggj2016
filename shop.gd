@@ -46,6 +46,8 @@ func reset_shop() -> void:
 
 
 func _on_button_pressed() -> void:
+	if not item_bought:
+		item_in_shop.queue_free()
 	item_bought = true
 	item_in_shop = null
 	item_held = false
