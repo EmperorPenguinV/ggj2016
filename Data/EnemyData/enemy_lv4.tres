@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dfdlqjob545e5"]
+
+[ext_resource type="Script" uid="uid://cbnjax8txpat8" path="res://Entities/Enemies/EnemyData.cs" id="1_k45rq"]
+
+[resource]
+script = ExtResource("1_k45rq")
+Description = "level 4"
+BaseDamage = 5
+Name = "CocoonPods"
+MaxHealth = 15
+metadata/_custom_type_script = "uid://cbnjax8txpat8"
