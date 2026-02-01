@@ -7,7 +7,7 @@
   },
   "2": {
 	"Name": "T_Dagger02",
-	"Damage": 100,
+	"Damage": 1,
 	"Armor": 0,
 	"Grid": "0,0/0,1"
   },
@@ -19,8 +19,8 @@
   },  
   "4": {
 	"Name": "T_Diskette02",
-	"Damage": 2,
-	"Armor": 0,
+	"Damage": 1,
+	"Armor": 1,
 	"Grid": "0,0"
   },
 }
