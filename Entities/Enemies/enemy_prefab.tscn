@@ -6,10 +6,11 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mothf"]
 
-[node name="Enemy" type="Node2D" unique_id=1525909285 node_paths=PackedStringArray("healthBar")]
+[node name="Enemy" type="Node2D" unique_id=1525909285 node_paths=PackedStringArray("healthBar", "nameTag")]
 script = ExtResource("1_eva56")
 Data = ExtResource("2_gp6s1")
 healthBar = NodePath("Panel/EnemyHealthBar")
+nameTag = NodePath("Panel/RichTextLabel")
 
 [node name="Panel" type="Panel" parent="." unique_id=195237104]
 anchors_preset = 1

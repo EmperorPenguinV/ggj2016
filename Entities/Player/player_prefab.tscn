@@ -6,10 +6,11 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07lmg"]
 
-[node name="Player" type="Node2D" unique_id=1453012715 node_paths=PackedStringArray("healthBar")]
+[node name="Player" type="Node2D" unique_id=1453012715 node_paths=PackedStringArray("healthBar", "nameTag")]
 script = ExtResource("1_wj3ea")
 Data = ExtResource("2_id7cp")
 healthBar = NodePath("Panel/PlayerHealthBar")
+nameTag = NodePath("Panel/RichTextLabel")
 
 [node name="Panel" type="Panel" parent="." unique_id=1695854467]
 offset_right = 248.0
