@@ -6,6 +6,7 @@ public partial class Entity : Node, IDamageable
 	[Export] protected EntityData Data;
 
 	[Export] int currentHealth;
+	[Export] protected HealthBar healthBar;
 
 	[Signal] public delegate void HealthChangedEventHandler(int health);
 
@@ -19,6 +20,8 @@ public partial class Entity : Node, IDamageable
 	public override void _Ready()
 	{
 		currentHealth = Data.MaxHealth;
+		healthBar.InitHealth(Health);
+		HealthChanged += healthBar.SetHealth;
 		GD.Print($"{Name} spawned | HP={Health}");
 	}
 
