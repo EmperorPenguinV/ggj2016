@@ -7,19 +7,20 @@
 [ext_resource type="Script" uid="uid://bl0eqh1j7e8h" path="res://Gameloop/InitializeStep.cs" id="3_x6js8"]
 [ext_resource type="Script" uid="uid://bhb3tl3nku1sj" path="res://Gameloop/PlaceMaskStep.cs" id="4_lg2j6"]
 [ext_resource type="Script" uid="uid://7bf6hxx24pbe" path="res://Gameloop/DamageStep.cs" id="5_y30xb"]
-[ext_resource type="Resource" uid="uid://bktm3285nbsbq" path="res://Data/EnemyData/enemy_lv1.tres" id="6_gipt1"]
+[ext_resource type="Resource" uid="uid://bktm3285nbsbq" path="res://Data/EnemyData/enemy_lv1.tres" id="6_pgw7i"]
 [ext_resource type="Script" uid="uid://cg2hd6jvxmmu8" path="res://Gameloop/EndStep.cs" id="6_xhjei"]
-[ext_resource type="Resource" uid="uid://c1u6jj32fhx0h" path="res://Data/EnemyData/enemy_lv2.tres" id="7_pgw7i"]
-[ext_resource type="Resource" uid="uid://cfrm6aab6i4to" path="res://Data/EnemyData/enemy_lv3.tres" id="8_v7xhk"]
+[ext_resource type="Resource" uid="uid://c1u6jj32fhx0h" path="res://Data/EnemyData/enemy_lv2.tres" id="7_v7xhk"]
+[ext_resource type="Resource" uid="uid://cfrm6aab6i4to" path="res://Data/EnemyData/enemy_lv3.tres" id="8_wukv0"]
 [ext_resource type="PackedScene" uid="uid://b728gqyo7afnq" path="res://Entities/Enemies/enemy_prefab.tscn" id="8_y30xb"]
 [ext_resource type="Texture2D" uid="uid://cl7puq8xhae7j" path="res://Assets/T_Spinne01.png" id="9_6vvcf"]
-[ext_resource type="Resource" uid="uid://dfdlqjob545e5" path="res://Data/EnemyData/enemy_lv4.tres" id="9_wukv0"]
+[ext_resource type="Resource" uid="uid://dfdlqjob545e5" path="res://Data/EnemyData/enemy_lv4.tres" id="9_hgvmy"]
 [ext_resource type="PackedScene" uid="uid://b51tkcnke32fs" path="res://Entities/Player/player_prefab.tscn" id="9_xhjei"]
 [ext_resource type="PackedScene" uid="uid://mex8po8bv8r2" path="res://hit_effect.tscn" id="10_cr6v8"]
-[ext_resource type="Resource" uid="uid://b3alucrp8unvg" path="res://Data/EnemyData/enemy_lv5.tres" id="10_hgvmy"]
+[ext_resource type="Resource" uid="uid://b3alucrp8unvg" path="res://Data/EnemyData/enemy_lv5.tres" id="10_ebcm8"]
 [ext_resource type="PackedScene" uid="uid://8a4kxiteq4ws" path="res://Scenes/Shop.tscn" id="10_xhjei"]
 [ext_resource type="AudioStream" uid="uid://dixse2blqqsdt" path="res://Assets/DavidKBD - Pink Bloom Pack - 01 - Pink Bloom.ogg" id="14_7rq2r"]
-[ext_resource type="Texture2D" uid="uid://ock87nyr5mvc" path="res://Assets/Dusk_0007_0.png" id="15_124qp"]
+[ext_resource type="Texture2D" uid="uid://q44jfqxdw6f2" path="res://Assets/backpack.png" id="18_v7xhk"]
+[ext_resource type="Texture2D" uid="uid://cpqvqa08hjtti" path="res://Assets/TBackground01.png" id="20_pgw7i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rq2r"]
 texture = ExtResource("2_f43ej")
@@ -138,7 +139,7 @@ script = ExtResource("3_x6js8")
 inventoryGd = NodePath("../../Inventory")
 enemy = NodePath("../../Enemy")
 player = NodePath("../../Player")
-enemyDatas = Array[Object]([ExtResource("6_gipt1"), ExtResource("7_pgw7i"), ExtResource("8_v7xhk"), ExtResource("9_wukv0"), ExtResource("10_hgvmy")])
+enemyDatas = Array[Object]([ExtResource("6_pgw7i"), ExtResource("7_v7xhk"), ExtResource("8_wukv0"), ExtResource("9_hgvmy"), ExtResource("10_ebcm8")])
 
 [node name="Place" type="Node" parent="GameLoop" unique_id=1365925195 node_paths=PackedStringArray("inventoryGd", "player", "enemy")]
 script = ExtResource("4_lg2j6")
@@ -151,11 +152,17 @@ script = ExtResource("5_y30xb")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 
-[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("shop", "player", "enemy")]
+[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("shop", "player", "enemy", "endPanel", "endPanelText", "reset", "enterName", "close", "initializeStep")]
 script = ExtResource("6_xhjei")
 shop = NodePath("../../Shop")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
+endPanel = NodePath("../../EndPanel")
+endPanelText = NodePath("../../EndPanel/RichTextLabel")
+reset = NodePath("../../EndPanel/VBoxContainer/Restart")
+enterName = NodePath("../../EndPanel/VBoxContainer/Enter Name")
+close = NodePath("../../EndPanel/VBoxContainer/Close")
+initializeStep = NodePath("../Initialize")
 
 [node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("8_y30xb")]
 position = Vector2(1087, 64)
@@ -172,6 +179,10 @@ scale = Vector2(4, 4)
 [node name="Player" parent="." unique_id=1453012715 instance=ExtResource("9_xhjei")]
 position = Vector2(64, 64)
 
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1943086211]
+position = Vector2(132, 245)
+texture = ExtResource("18_v7xhk")
+
 [node name="Shop" parent="." unique_id=1299886706 node_paths=PackedStringArray("inventory") instance=ExtResource("10_xhjei")]
 visible = false
 position = Vector2(705, 414)
@@ -186,5 +197,61 @@ parameters/looping = true
 [node name="Dusk00070" type="Sprite2D" parent="." unique_id=846715457]
 z_index = -1
 position = Vector2(573.99994, 335)
-scale = Vector2(2.28125, 2.361111)
-texture = ExtResource("15_124qp")
+texture = ExtResource("20_pgw7i")
+
+[node name="EndPanel" type="Control" parent="." unique_id=1145744652]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndPanel" unique_id=1662865980]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -50.5
+offset_right = 50.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Restart" type="Button" parent="EndPanel/VBoxContainer" unique_id=383755807]
+layout_mode = 2
+text = "Restart"
+
+[node name="Enter Name" type="Button" parent="EndPanel/VBoxContainer" unique_id=385394872]
+layout_mode = 2
+text = "Enter Name"
+
+[node name="Close" type="Button" parent="EndPanel/VBoxContainer" unique_id=215505030]
+layout_mode = 2
+text = "Close"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="EndPanel" unique_id=1374663861]
+clip_contents = false
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -187.0
+offset_right = 251.0
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "You died
+Spiders Vanquished:"
+autowrap_mode = 0
+horizontal_alignment = 1
