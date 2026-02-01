@@ -128,8 +128,11 @@ offset_bottom = 391.0
 [node name="GameLoop" type="Node" parent="." unique_id=960253668]
 script = ExtResource("2_kilg5")
 
-[node name="Initialize" type="Node" parent="GameLoop" unique_id=1088468562]
+[node name="Initialize" type="Node" parent="GameLoop" unique_id=1088468562 node_paths=PackedStringArray("inventoryGd", "enemy", "player")]
 script = ExtResource("3_x6js8")
+inventoryGd = NodePath("../../Inventory")
+enemy = NodePath("../../Enemy")
+player = NodePath("../../Player")
 
 [node name="Place" type="Node" parent="GameLoop" unique_id=1365925195 node_paths=PackedStringArray("inventoryGd", "player", "enemy")]
 script = ExtResource("4_lg2j6")
@@ -142,8 +145,9 @@ script = ExtResource("5_y30xb")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 
-[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("player", "enemy")]
+[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("shop", "player", "enemy")]
 script = ExtResource("6_xhjei")
+shop = NodePath("../../Shop")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 
