@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://mex8po8bv8r2" path="res://hit_effect.tscn" id="10_cr6v8"]
 [ext_resource type="PackedScene" uid="uid://8a4kxiteq4ws" path="res://Scenes/Shop.tscn" id="10_xhjei"]
 [ext_resource type="AudioStream" uid="uid://dixse2blqqsdt" path="res://Assets/DavidKBD - Pink Bloom Pack - 01 - Pink Bloom.ogg" id="14_7rq2r"]
+[ext_resource type="Texture2D" uid="uid://ock87nyr5mvc" path="res://Assets/Dusk_0007_0.png" id="15_124qp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rq2r"]
 texture = ExtResource("2_f43ej")
@@ -173,6 +174,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="Background1" type="TextureRect" parent="." unique_id=1132719715]
+visible = false
 modulate = Color(0.31804693, 0.31804693, 0.31804693, 1)
 z_index = -100
 offset_right = 1153.0
@@ -180,6 +182,7 @@ offset_bottom = 301.0
 texture = SubResource("CanvasTexture_7rq2r")
 
 [node name="Background2" type="TextureRect" parent="." unique_id=1491248074]
+visible = false
 modulate = Color(0.6955031, 0.6955032, 0.6955029, 1)
 self_modulate = Color(0.62152386, 0.62152386, 0.6215238, 1)
 z_index = -100
@@ -188,3 +191,9 @@ offset_top = 299.0
 offset_right = 1158.0
 offset_bottom = 664.0
 texture = SubResource("CanvasTexture_7rq2r")
+
+[node name="Dusk00070" type="Sprite2D" parent="." unique_id=846715457]
+z_index = -1
+position = Vector2(573.99994, 335)
+scale = Vector2(2.28125, 2.361111)
+texture = ExtResource("15_124qp")
