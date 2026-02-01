@@ -19,7 +19,8 @@
 [ext_resource type="Resource" uid="uid://b3alucrp8unvg" path="res://Data/EnemyData/enemy_lv5.tres" id="10_ebcm8"]
 [ext_resource type="PackedScene" uid="uid://8a4kxiteq4ws" path="res://Scenes/Shop.tscn" id="10_xhjei"]
 [ext_resource type="AudioStream" uid="uid://dixse2blqqsdt" path="res://Assets/DavidKBD - Pink Bloom Pack - 01 - Pink Bloom.ogg" id="14_7rq2r"]
-[ext_resource type="Texture2D" uid="uid://ock87nyr5mvc" path="res://Assets/Dusk_0007_0.png" id="15_124qp"]
+[ext_resource type="Texture2D" uid="uid://q44jfqxdw6f2" path="res://Assets/backpack.png" id="18_v7xhk"]
+[ext_resource type="Texture2D" uid="uid://cpqvqa08hjtti" path="res://Assets/TBackground01.png" id="20_pgw7i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rq2r"]
 texture = ExtResource("2_f43ej")
@@ -178,6 +179,10 @@ scale = Vector2(4, 4)
 [node name="Player" parent="." unique_id=1453012715 instance=ExtResource("9_xhjei")]
 position = Vector2(64, 64)
 
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1943086211]
+position = Vector2(132, 245)
+texture = ExtResource("18_v7xhk")
+
 [node name="Shop" parent="." unique_id=1299886706 node_paths=PackedStringArray("inventory") instance=ExtResource("10_xhjei")]
 visible = false
 position = Vector2(705, 414)
@@ -192,8 +197,7 @@ parameters/looping = true
 [node name="Dusk00070" type="Sprite2D" parent="." unique_id=846715457]
 z_index = -1
 position = Vector2(573.99994, 335)
-scale = Vector2(2.28125, 2.361111)
-texture = ExtResource("15_124qp")
+texture = ExtResource("20_pgw7i")
 
 [node name="EndPanel" type="Control" parent="." unique_id=1145744652]
 layout_mode = 3

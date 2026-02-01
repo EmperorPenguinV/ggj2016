@@ -284,3 +284,14 @@ func reduce_cooldowns() -> void:
 	for slot in grid_array:
 		if slot.cooldown_timer.cooldown > 0:
 			slot.cooldown_timer.cooldown -= 1
+			
+func reset_inventory() -> void:
+	for grid in grid_array:
+		grid.queue_free()
+	grid_array = []
+	item_held = null
+	mask_held = null
+	current_slot = null
+	can_place = false
+	item_placement_allowed = false
+	_ready()
