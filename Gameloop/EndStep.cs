@@ -107,8 +107,9 @@ public partial class EndStep : AGameStep
 
 	private void Restart()
 	{
-		loop.EndGame();
-		loop.StartGame();
+		// loop.EndGame();
+		// loop.StartGame();
+		GetTree().ReloadCurrentScene();
 	}
 
 	private void Close()
