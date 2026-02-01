@@ -43,3 +43,10 @@ func _reset_item_position() -> void:
 func reset_shop() -> void:
 	_ready()
 	item_bought = false
+
+
+func _on_button_pressed() -> void:
+	item_bought = true
+	item_in_shop = null
+	item_held = false
+	shopping_finished.emit()
