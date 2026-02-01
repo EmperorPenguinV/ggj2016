@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dbtcj0urrouq3"]
 
 [ext_resource type="PackedScene" uid="uid://ynoex1xrt056" path="res://UI/input_field_name.tscn" id="1_1opiu"]
-[ext_resource type="Texture2D" uid="uid://cpqvqa08hjtti" path="res://Assets/TBackground01.png" id="1_kt0tg"]
+[ext_resource type="Texture2D" uid="uid://y7w0ruercxvy" path="res://Assets/TStarbildschirm01.png" id="1_kt0tg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kt0tg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0fe0"]
 bg_color = Color(0.27058825, 0.007843138, 0.15294118, 1)
 
 [node name="MenuScene" type="Node2D" unique_id=97903567]
@@ -19,18 +19,15 @@ grow_vertical = 2
 texture = ExtResource("1_kt0tg")
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=449357617]
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -60.0
-offset_right = 100.0
-offset_bottom = 60.0
+offset_left = -75.0
+offset_top = 452.78998
+offset_right = 75.0
+offset_bottom = 502.78998
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_kt0tg")
+theme_override_styles/panel = SubResource("StyleBoxFlat_s0fe0")
 
 [node name="InputFieldName" parent="CanvasLayer/Panel" unique_id=295115181 instance=ExtResource("1_1opiu")]
 layout_mode = 1
