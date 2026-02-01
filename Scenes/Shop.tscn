@@ -44,3 +44,5 @@ layout_mode = 2
 [node name="Button" type="Button" parent="Shop/MarginContainer/VBoxContainer/Container" unique_id=17248866]
 layout_mode = 2
 text = "Skip Reward"
+
+[connection signal="pressed" from="Shop/MarginContainer/VBoxContainer/Container/Button" to="." method="_on_button_pressed"]
