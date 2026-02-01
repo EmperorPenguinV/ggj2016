@@ -29,8 +29,6 @@ public partial class GameLoop : Node
 		{
 			step.Reset();
 		}
-
-		GetTree().ChangeSceneToFile("res://Scenes/menu_scene.tscn");
 	}
 
 	internal void GoToStep(GameSteps nextStep)

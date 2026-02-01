@@ -151,11 +151,15 @@ script = ExtResource("5_y30xb")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 
-[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("shop", "player", "enemy")]
+[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("shop", "player", "enemy", "endPanel", "reset", "enterName", "close")]
 script = ExtResource("6_xhjei")
 shop = NodePath("../../Shop")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
+endPanel = NodePath("../../EndPanel")
+reset = NodePath("../../EndPanel/VBoxContainer/Restart")
+enterName = NodePath("../../EndPanel/VBoxContainer/Enter Name")
+close = NodePath("../../EndPanel/VBoxContainer/Close")
 
 [node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("8_y30xb")]
 position = Vector2(1087, 64)
@@ -188,3 +192,39 @@ z_index = -1
 position = Vector2(573.99994, 335)
 scale = Vector2(2.28125, 2.361111)
 texture = ExtResource("15_124qp")
+
+[node name="EndPanel" type="Control" parent="." unique_id=1145744652]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndPanel" unique_id=1662865980]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -50.5
+offset_right = 50.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Restart" type="Button" parent="EndPanel/VBoxContainer" unique_id=383755807]
+layout_mode = 2
+text = "Restart"
+
+[node name="Enter Name" type="Button" parent="EndPanel/VBoxContainer" unique_id=385394872]
+layout_mode = 2
+text = "Enter Name"
+
+[node name="Close" type="Button" parent="EndPanel/VBoxContainer" unique_id=215505030]
+layout_mode = 2
+text = "Close"

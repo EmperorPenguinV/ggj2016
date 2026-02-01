@@ -9,22 +9,39 @@ public partial class EndStep : AGameStep
 
 	[Export] private Enemy enemy;
 
+	[Export] private CanvasItem endPanel;
+
+	[Export] private Button reset;
+
+	[Export] private Button enterName;
+
+	[Export] private Button close;
+
 	private Callable shopFinished;
 
-	private TaskCompletionSource taskCompletionSource;
+	private GameLoop loop;
+
+	private TaskCompletionSource shopCompletionSource;
 
 	public override GameSteps Identifier => GameSteps.End;
 
     public override void _Ready()
 	{
 		shopFinished = Callable.From(FinishedShopping);
+		endPanel.Visible = false;
+
+		close.Pressed += Close;
+		enterName.Pressed += BackToName;
+		reset.Pressed += Restart;
 	}
 
     public async override void Enter(GameLoop gameLoop)
 	{
 		try
 		{
-			taskCompletionSource = new TaskCompletionSource();
+			loop ??= gameLoop;
+
+			shopCompletionSource = new TaskCompletionSource();
 
 			//Check Health
 			var playerDead = player.IsDead();
@@ -35,7 +52,7 @@ public partial class EndStep : AGameStep
 				shop.Connect("shopping_finished", shopFinished);
 				shop.Visible = true;
 
-				await taskCompletionSource.Task;
+				await shopCompletionSource.Task;
 
 				gameLoop.GoToStep(GameSteps.Initialize);
 
@@ -46,9 +63,9 @@ public partial class EndStep : AGameStep
 			{
 				GD.Print($"Player lost");
 
-				await Task.Delay(2000);
+				await Task.Delay(1000);
 
-				gameLoop.EndGame();
+				endPanel.Visible = true;
 
 				return;
 			}
@@ -73,11 +90,29 @@ public partial class EndStep : AGameStep
 	}
 
     public override void Reset()
-    {
-    }
+	{
+		endPanel.Visible = false;
+		Exit();
+	}
 
 	private void FinishedShopping()
 	{
-		taskCompletionSource.SetResult();
+		shopCompletionSource.SetResult();
+	}
+
+	private void Restart()
+	{
+		loop.EndGame();
+		loop.StartGame();
+	}
+
+	private void Close()
+	{
+		GetTree().Quit();
+	}
+
+	private void BackToName()
+	{
+		GetTree().ChangeSceneToFile("res://Scenes/menu_scene.tscn");
 	}
 }
