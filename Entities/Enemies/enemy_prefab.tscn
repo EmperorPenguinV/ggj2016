@@ -23,14 +23,11 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_mothf")
 
 [node name="EnemyHealthBar" parent="Panel" unique_id=968013164 instance=ExtResource("3_mothf")]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -244.0
-offset_top = 4.0
-offset_right = -4.0
-offset_bottom = 24.0
-grow_horizontal = 0
+offset_left = -240.0
+offset_top = 1.0
+offset_right = 0.0
+offset_bottom = 21.0
+script = null
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=464187496]
 layout_mode = 1
