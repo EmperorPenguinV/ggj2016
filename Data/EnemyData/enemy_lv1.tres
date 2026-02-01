@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bktm3285nbsbq"]
+
+[ext_resource type="Script" uid="uid://cbnjax8txpat8" path="res://Entities/Enemies/EnemyData.cs" id="1_h5sl1"]
+
+[resource]
+script = ExtResource("1_h5sl1")
+Description = "level 1"
+BaseDamage = 2
+Name = "Crawler.exe"
+MaxHealth = 8
+metadata/_custom_type_script = "uid://cbnjax8txpat8"

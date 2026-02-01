@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c1u6jj32fhx0h"]
+
+[ext_resource type="Script" uid="uid://cbnjax8txpat8" path="res://Entities/Enemies/EnemyData.cs" id="1_a1tjr"]
+
+[resource]
+script = ExtResource("1_a1tjr")
+Description = "level 2"
+BaseDamage = 2
+Name = "Web_Server.exe"
+MaxHealth = 11
+metadata/_custom_type_script = "uid://cbnjax8txpat8"

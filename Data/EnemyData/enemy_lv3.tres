@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cfrm6aab6i4to"]
+
+[ext_resource type="Script" uid="uid://cbnjax8txpat8" path="res://Entities/Enemies/EnemyData.cs" id="1_omynp"]
+
+[resource]
+script = ExtResource("1_omynp")
+Description = "level 3"
+BaseDamage = 4
+Name = "$poison_injection.dll"
+MaxHealth = 12
+metadata/_custom_type_script = "uid://cbnjax8txpat8"
