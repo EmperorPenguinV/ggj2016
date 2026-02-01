@@ -18,6 +18,7 @@ public partial class Enemy : Entity
 	public override AttackData DealDamage()
 	{
 		int damage = RollDamage(EnemyData.BaseDamage);
+		GD.Print($"{Name} rolls a {damage} for damage");
 		currentDamage = damage;
 
 		return base.DealDamage();

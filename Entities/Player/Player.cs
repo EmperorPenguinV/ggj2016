@@ -2,17 +2,17 @@ using Godot;
 
 public partial class Player : Entity
 {
-  protected PlayerData PlayerData => (PlayerData)Data;
+	protected PlayerData PlayerData => (PlayerData)Data;
 
-  [Export] private int currentArmor;
+	[Export] private int currentArmor;
 
-  public int Armor => currentArmor;
+	public int Armor => currentArmor;
 
-  private Callable inventoryUpdate;
+	private Callable inventoryUpdate;
 
 	public override void _Ready()
 	{
-    base._Ready();
+		base._Ready();
 		GD.Print($"{Name} spawned | HP={Health}");
 		inventoryUpdate = Callable.From((int damage, int armor) => OnInventoryUpdated(damage, armor));
 	}
@@ -27,9 +27,9 @@ public partial class Player : Entity
 		inventoryGd.Disconnect("mask_placed", inventoryUpdate);
 	}
 
-  public override void TakeDamage(AttackData attack)
-  {
-    var damage = attack.Damage;
+	public override void TakeDamage(AttackData attack)
+	{
+		var damage = attack.Damage;
 		damage -= currentArmor;
 
 
@@ -38,12 +38,13 @@ public partial class Player : Entity
 			GD.Print($"{Name} hit for 0 damage because it was migigated by armor");
 			return;
 		}
+		GD.Print($"{Name} took {damage} damage!");
 
-    var reducedHealth = Mathf.Clamp(Health - damage, 0, MaxHealth);
-    SetHealth(reducedHealth);
-  }
+		var reducedHealth = Mathf.Clamp(Health - damage, 0, MaxHealth);
+		SetHealth(reducedHealth);
+	}
 
-  private void OnInventoryUpdated(int damage, int armor)
+	private void OnInventoryUpdated(int damage, int armor)
 	{
 		currentArmor = armor;
 		currentDamage = damage;
