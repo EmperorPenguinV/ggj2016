@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://db1ivros213jc"]
+
+[ext_resource type="PackedScene" uid="uid://dmtnyoqihnxsc" path="res://CombatSystem/HealthBar/health_bar_prefab.tscn" id="1_ghl3o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uhsd"]
+bg_color = Color(0, 1, 0.6901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghl3o"]
+bg_color = Color(2.1358021e-07, 0.17733401, 0.10910841, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[node name="PlayerHealthBar" unique_id=968013164 instance=ExtResource("1_ghl3o")]
+theme_override_styles/fill = SubResource("StyleBoxFlat_1uhsd")
+
+[node name="DamageBar" parent="." index="0" unique_id=1406879116]
+theme_override_styles/background = SubResource("StyleBoxFlat_ghl3o")
