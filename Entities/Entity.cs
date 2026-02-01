@@ -20,6 +20,7 @@ public partial class Entity : Node, IDamageable
 
 	public override void _Ready()
 	{
+		nameTag.Text = Name;
 		currentHealth = Data.MaxHealth;
 		healthBar.InitHealth(Health);
 		HealthChanged += healthBar.SetHealth;
