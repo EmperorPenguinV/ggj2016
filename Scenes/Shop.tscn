@@ -6,7 +6,7 @@
 script = ExtResource("1_iidq5")
 
 [node name="Shop" type="ColorRect" parent="." unique_id=293822023]
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(450, 300)
 offset_right = 300.0
 offset_bottom = 300.0
 size_flags_horizontal = 8

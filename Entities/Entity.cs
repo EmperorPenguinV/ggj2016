@@ -35,6 +35,9 @@ public partial class Entity : Node, IDamageable
 
 	public virtual void TakeDamage(AttackData attack)
 	{
+		if(attack.Damage > 0){
+			((AnimationPlayer)GetNode("HitEffect").GetChild(0)).Play("hit");
+		}
 		var damage = attack.Damage;
 		GD.Print($"{Name} took {damage} damage!");
 
