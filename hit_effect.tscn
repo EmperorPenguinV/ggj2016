@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://mex8po8bv8r2"]
 
 [ext_resource type="Texture2D" uid="uid://cxtw1e8hfrh5s" path="res://Assets/blood_impact_6x5.png" id="1_r4b7x"]
+[ext_resource type="AudioStream" uid="uid://cd857pv5hosbq" path="res://Assets/DSGNImpt_MELEE-Hollow Punch_HY_PC-001.wav" id="2_gh0va"]
 
 [sub_resource type="Animation" id="Animation_r4b7x"]
 length = 0.001
@@ -15,6 +16,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_gh0va"]
@@ -31,6 +44,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [1, 3, 3, 4, 5, 6, 7, 8, 19]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k0crp"]
@@ -49,3 +74,6 @@ autoplay = &"RESET"
 texture = ExtResource("1_r4b7x")
 hframes = 6
 vframes = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=553449811]
+stream = ExtResource("2_gh0va")
