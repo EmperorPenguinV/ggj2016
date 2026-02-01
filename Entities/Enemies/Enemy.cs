@@ -31,6 +31,8 @@ public partial class Enemy : Entity
 
 	public int RollDamage(int max, int min = 1)
 	{
-		return rng.RandiRange(min, max);
+		var damage = rng.RandiRange(min, max);
+		damagePreview.Text = $"{damage} Damage";
+		return damage;
 	}
 }
