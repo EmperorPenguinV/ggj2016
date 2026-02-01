@@ -13,7 +13,9 @@ expand_margin_right = 1.0
 expand_margin_bottom = 1.0
 
 [node name="PlayerHealthBar" unique_id=968013164 instance=ExtResource("1_ghl3o")]
+
+[node name="HealthBar" parent="." index="0" unique_id=968013164]
 theme_override_styles/fill = SubResource("StyleBoxFlat_1uhsd")
 
-[node name="DamageBar" parent="." index="0" unique_id=1406879116]
+[node name="DamageBar" parent="HealthBar" index="0" unique_id=1406879116]
 theme_override_styles/background = SubResource("StyleBoxFlat_ghl3o")
