@@ -5,6 +5,8 @@ public partial class Entity : Node, IDamageable
 	[Export] protected EntityData Data;
 	[Export] protected HealthBar healthBar;
 
+	[Export] protected RichTextLabel nameTag;
+
 	[Export] protected int currentHealth;
 
 	[Signal] public delegate void HealthChangedEventHandler(int health);
