@@ -44,8 +44,10 @@ player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 
 [node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("8_y30xb")]
+position = Vector2(1087, 64)
 
 [node name="Player" parent="." unique_id=1453012715 instance=ExtResource("9_xhjei")]
+position = Vector2(64, 64)
 
 [node name="Shop" parent="." unique_id=1299886706 node_paths=PackedStringArray("inventory") instance=ExtResource("10_xhjei")]
 position = Vector2(805, 314)
