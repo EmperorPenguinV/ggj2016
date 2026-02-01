@@ -140,10 +140,11 @@ enemy = NodePath("../../Enemy")
 player = NodePath("../../Player")
 enemyDatas = Array[Object]([ExtResource("6_gipt1"), ExtResource("7_pgw7i"), ExtResource("8_v7xhk"), ExtResource("9_wukv0"), ExtResource("10_hgvmy")])
 
-[node name="Place" type="Node" parent="GameLoop" unique_id=1365925195 node_paths=PackedStringArray("inventoryGd", "player")]
+[node name="Place" type="Node" parent="GameLoop" unique_id=1365925195 node_paths=PackedStringArray("inventoryGd", "player", "enemy")]
 script = ExtResource("4_lg2j6")
 inventoryGd = NodePath("../../Inventory")
 player = NodePath("../../Player")
+enemy = NodePath("../../Enemy")
 
 [node name="Damage" type="Node" parent="GameLoop" unique_id=896875935 node_paths=PackedStringArray("player", "enemy")]
 script = ExtResource("5_y30xb")
