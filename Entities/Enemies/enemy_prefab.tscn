@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ce1ce54884s5q" path="res://Entities/Enemies/Enemy.cs" id="1_eva56"]
 [ext_resource type="Resource" uid="uid://bc04l16us6dh1" path="res://Data/EnemyData/enemy_basic.tres" id="2_gp6s1"]
+[ext_resource type="PackedScene" uid="uid://bj2q2tv7uuvlq" path="res://CombatSystem/HealthBar/health_bar_enemy_prefab.tscn" id="3_mothf"]
 
-[node name="Enemy" type="Node2D" unique_id=1525909285]
+[node name="Enemy" type="Node2D" unique_id=1525909285 node_paths=PackedStringArray("healthBar")]
 script = ExtResource("1_eva56")
 Data = ExtResource("2_gp6s1")
+healthBar = NodePath("EnemyHealthBar")
+
+[node name="EnemyHealthBar" parent="." unique_id=968013164 instance=ExtResource("3_mothf")]
