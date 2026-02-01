@@ -19,7 +19,8 @@
 [ext_resource type="Resource" uid="uid://b3alucrp8unvg" path="res://Data/EnemyData/enemy_lv5.tres" id="10_hgvmy"]
 [ext_resource type="PackedScene" uid="uid://8a4kxiteq4ws" path="res://Scenes/Shop.tscn" id="10_xhjei"]
 [ext_resource type="AudioStream" uid="uid://dixse2blqqsdt" path="res://Assets/DavidKBD - Pink Bloom Pack - 01 - Pink Bloom.ogg" id="14_7rq2r"]
-[ext_resource type="Texture2D" uid="uid://ock87nyr5mvc" path="res://Assets/Dusk_0007_0.png" id="15_124qp"]
+[ext_resource type="Texture2D" uid="uid://q44jfqxdw6f2" path="res://Assets/backpack.png" id="18_v7xhk"]
+[ext_resource type="Texture2D" uid="uid://cpqvqa08hjtti" path="res://Assets/TBackground01.png" id="21_wukv0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7rq2r"]
 texture = ExtResource("2_f43ej")
@@ -151,15 +152,11 @@ script = ExtResource("5_y30xb")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
 
-[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("shop", "player", "enemy", "endPanel", "reset", "enterName", "close")]
+[node name="End" type="Node" parent="GameLoop" unique_id=1737249369 node_paths=PackedStringArray("shop", "player", "enemy")]
 script = ExtResource("6_xhjei")
 shop = NodePath("../../Shop")
 player = NodePath("../../Player")
 enemy = NodePath("../../Enemy")
-endPanel = NodePath("../../EndPanel")
-reset = NodePath("../../EndPanel/VBoxContainer/Restart")
-enterName = NodePath("../../EndPanel/VBoxContainer/Enter Name")
-close = NodePath("../../EndPanel/VBoxContainer/Close")
 
 [node name="Enemy" parent="." unique_id=1525909285 instance=ExtResource("8_y30xb")]
 position = Vector2(1087, 64)
@@ -176,6 +173,10 @@ scale = Vector2(4, 4)
 [node name="Player" parent="." unique_id=1453012715 instance=ExtResource("9_xhjei")]
 position = Vector2(64, 64)
 
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=201338654]
+position = Vector2(111, 262)
+texture = ExtResource("18_v7xhk")
+
 [node name="Shop" parent="." unique_id=1299886706 node_paths=PackedStringArray("inventory") instance=ExtResource("10_xhjei")]
 visible = false
 position = Vector2(705, 414)
@@ -186,12 +187,6 @@ stream = ExtResource("14_7rq2r")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
-
-[node name="Dusk00070" type="Sprite2D" parent="." unique_id=846715457]
-z_index = -1
-position = Vector2(573.99994, 335)
-scale = Vector2(2.28125, 2.361111)
-texture = ExtResource("15_124qp")
 
 [node name="EndPanel" type="Control" parent="." unique_id=1145744652]
 layout_mode = 3
@@ -228,3 +223,9 @@ text = "Enter Name"
 [node name="Close" type="Button" parent="EndPanel/VBoxContainer" unique_id=215505030]
 layout_mode = 2
 text = "Close"
+
+[node name="TBackground01" type="Sprite2D" parent="." unique_id=136146930]
+z_index = -1000
+position = Vector2(578.5, 337.5)
+scale = Vector2(1.0199653, 1.050926)
+texture = ExtResource("21_wukv0")
