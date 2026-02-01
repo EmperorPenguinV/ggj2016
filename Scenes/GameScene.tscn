@@ -166,6 +166,7 @@ texture = ExtResource("9_6vvcf")
 
 [node name="HitEffect" parent="Enemy" unique_id=1795497995 instance=ExtResource("10_cr6v8")]
 position = Vector2(-180, 168)
+scale = Vector2(4, 4)
 
 [node name="Player" parent="." unique_id=1453012715 instance=ExtResource("9_xhjei")]
 position = Vector2(64, 64)
